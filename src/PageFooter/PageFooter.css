@@ -1,0 +1,15 @@
+
+/* The company logo */
+
+.companyTitle {
+    background-color: #0000FF;
+    min-height: 50px;
+    width: 98%;
+    padding: 10px;
+    color: #FFFF;
+    font: normal 15px 'Open Sans', cursive;
+}
+
+.companyTitle span{
+	color:  #00FF00;
+}

@@ -1,22 +1,33 @@
 .pageHeader {
     background-color: #0000FF;
     min-height: 80px;
-    width: 100%;
+    width: 98%;
     padding: 10px;
 }
+
+/* The company logo */
 
 .pageHeader h1 {
     float: left;
     margin-right: 50px;
+    margin-top: 10px;
+    font: normal 36px 'Open Sans', cursive;
+    color: #FFFF;
+}
+
+.pageHeader h1 span{
+	color:  #00FF00;
 }
 
 .pageHeader ul.nav {
     margin-top: 30px;
+    margin-right: 200px;
 }
 
 .pageHeader ul.nav li {
     display:inline;
     padding: 20px;
     font-size: 1.5em;
-    color: #FFFFFF;
+    color: #00FF00;
+    cursor: pointer;
 }

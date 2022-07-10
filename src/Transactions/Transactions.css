@@ -1,0 +1,23 @@
+
+.table {
+    margin-left: 570px;
+    margin-bottom: 30px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    background-color: #0000FF;
+    color: #FFFF;
+  }
+
+.transactionsTable {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    border: 1px solid #999;
+}
+.transactionsTable td, .transactionsTable th {
+    padding: 3px;
+    border: 1px solid #999;
+}

@@ -1,0 +1,120 @@
+/* Welcome */
+
+/* Boxed Welcome message Box */
+  .boxed {
+    border: 1px solid #00FF00;
+    width: 1020px;
+    margin-left: 250px;
+    margin-bottom: 10px;
+    background-color: #0000FF;
+    color:  #ffffff;
+    margin-top: 20px;
+  }
+
+  .welcome{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 20px;
+  }
+  
+  /* Paragraph Welcome message Box */
+  .par{
+    padding-left: 20px;
+    padding-bottom: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    letter-spacing: 1.2px;
+    line-height: 25px;
+  }
+
+/* images */
+.images{
+    width: auto;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 0px;
+  }
+
+.imagesize {
+  min-height: 0px;
+  min-width: 0px; 
+  
+}
+
+/* Register New Claim Form - Start */
+
+  h2 {
+    font-size: 35px;
+    padding: 35px;
+    background: #0000FF;
+    color: #FFFFFF;
+    font: normal 36px 'Open Sans', cursive;
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-right:-10px;
+  }
+  
+  /*displays the border of the container */
+  .container {
+      width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 40px;
+      margin-bottom: 50px;
+      background: #fff;
+      border: 2px #000 solid;
+      padding: 10px;
+  }
+  
+  form label {
+      color: #00f;
+      width: 300px;
+      display: block;
+      float: left;
+      margin-right: 10px;
+      font-size: 19px;
+  }
+
+  .radio-container {
+    text-align: left;
+  }
+  
+  form label.radio-label {
+      display: inline-block;
+      float: none;
+      width: fit-content;
+  }
+  
+  input[type="radio"] {
+      display: inline-block;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  input, select {
+      margin-bottom: 10px;
+      display: block;
+  }
+  
+  td, th {
+      border: 1px solid #000;    
+  }
+  table {
+      border-collapse: collapse;
+  }
+  
+  /* Register button */
+  .button {
+    background-color: #0000FF;; /* blue */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  /* Register New Claim Form - End */
