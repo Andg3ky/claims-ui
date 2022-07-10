@@ -1,9 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import PageHeader from './PageHeader/PageHeader';
 import Search from './Search/Search';
-import Transactions from './Transactions/Transactions';
-
+import Transactions from "./Transactions/Transactions";
+import PageFooter from './PageFooter/PageFooter';
 
 function App() {
   return (
@@ -11,8 +10,8 @@ function App() {
       
       <PageHeader />
       <Search />
-      <Transactions />
-      
+      <Transactions/>
+      <PageFooter />
 
     </div>
   );
