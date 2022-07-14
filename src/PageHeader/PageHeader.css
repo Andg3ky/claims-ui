@@ -31,3 +31,9 @@
     color: #00FF00;
     cursor: pointer;
 }
+
+/* Change color of dropdown links on hover */
+.pageHeader ul.nav li:hover {
+  padding: 20px;
+  background-color: floralwhite;
+}

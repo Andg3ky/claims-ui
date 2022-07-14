@@ -1,21 +1,25 @@
+import { getAllClaims } from '../Data/DataFunctions';
 import TransactionRow from './TransactionRow';
 import './Transactions.css';
 
 const Transactions = () => {
 
-    return <div class="table"> <table classname="transactionsTable">
+    // { id: 1, policynumber: 5051, customer: "Mr Alan James", status: "Open", type: "Property", address: "21216652", estimatedvalue: 450, dateofclaim: "2022-05-25", reason: "Window Smashed" },
+
+    const transactions = getAllClaims();
+
+    const displayTransactions = transactions.map ( trans => 
+        <TransactionRow key={trans.id} id={trans.id} policynumber={trans.policynumber} customer={trans.customer} status={trans.status} type={trans.type}
+        address={trans.address} estimatedvalue={trans.estimatedvalue} dateofclaim={trans.dateofclaim} reason={trans.reason} />
+    );
+
+    return <div class="table"> 
+        <table classname="transactionsTable">
         <thead>
-        <tr><th>Claim ID</th><th>Policy Number</th><th>Surname</th><th>Status</th><th></th></tr>
+        <tr><th>Claim ID</th><th>Policy Number</th><th>Name</th><th>Status</th><th></th></tr>
         </thead>
         <tbody>
-        
-        <TransactionRow id="1" policy="5051" surname="James" status="Open" button="Open" />
-        <TransactionRow id="2" policy="1256" surname="Harrison" status="Rejected" button="Open" />
-        <TransactionRow id="3" policy="7835" surname="Willis" status="Paid" button="Open" />
-        <TransactionRow id="4" policy="9335" surname="Burton" status="Rejected" button="Open" />
-        <TransactionRow id="5" policy="3998" surname="Smith" status="Open" button="Open" />
-        <TransactionRow id="6" policy="6689" surname="Johnson" status="Paid" button="Open" />
-
+        {displayTransactions}
         </tbody>
         </table>
         </div>

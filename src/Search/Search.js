@@ -2,7 +2,7 @@ import './Search.css'
 
 const Search = () => {
 
-return  <div class="container">
+return  <div class="searchContainer">
 
 <div className="searchBox">
         <div>
@@ -10,10 +10,10 @@ return  <div class="container">
         </div>
         <p>Enter a policy number or part of the customer's surname</p>
         <label htmlFor="policyNumber">Policy Number:</label>
-        <input id="policyNumber" type="number" />
+        <input class="searchEntry" id="policyNumber" type="number" />
         <br></br> 
         <label htmlFor="surName">Surname:</label>
-        <input id="surName" type="text" />
+        <input class="searchEntry" id="surName" type="text" />
         <br></br>
         <button type="button" class="searchButton">Search</button>
     </div>

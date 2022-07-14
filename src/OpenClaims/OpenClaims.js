@@ -3,13 +3,13 @@ import './OpenClaims.css';
 
 const OpenClaims = () => {
 
-    return <div class="container">
+    return <div class="openclaimsContainer">
     <div className="openClaimsBox">
         <div>
             <h1 className="openClaimsTitle">Open Claims</h1>
         </div>
 
-        <div class="table"> <table classname="transactionsTable">
+        <div class="table"> <table>
         <thead>
         <tr><th>Claim ID</th><th>Policy Number</th><th>Surname</th><th>Status</th><th></th></tr>
         </thead>
