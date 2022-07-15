@@ -4,8 +4,6 @@ import './Transactions.css';
 
 const Transactions = () => {
 
-    // { id: 1, policynumber: 5051, customer: "Mr Alan James", status: "Open", type: "Property", address: "21216652", estimatedvalue: 450, dateofclaim: "2022-05-25", reason: "Window Smashed" },
-
     const transactions = getAllClaims();
 
     const displayTransactions = transactions.map ( trans => 
@@ -13,8 +11,8 @@ const Transactions = () => {
         address={trans.address} estimatedvalue={trans.estimatedvalue} dateofclaim={trans.dateofclaim} reason={trans.reason} />
     );
 
-    return <div class="table"> 
-        <table classname="transactionsTable">
+    return <div className="tableData"> 
+        <table className="transactionsTable">
         <thead>
         <tr><th>Claim ID</th><th>Policy Number</th><th>Name</th><th>Status</th><th></th></tr>
         </thead>
@@ -22,7 +20,7 @@ const Transactions = () => {
         {displayTransactions}
         </tbody>
         </table>
-        </div>
+    </div>
 
 }
 

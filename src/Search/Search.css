@@ -20,6 +20,7 @@
     padding: 10px
 }
 
+/*displays title */
 .searchTitle {
     font: normal 36px 'Open Sans', cursive;
     background: #0000FF;
@@ -32,7 +33,7 @@
 }
 
 .searchButton {
-        background-color: #0000FF;; /* blue */
+        background-color: #0000FF; /* blue */
         border: none;
         color: white;
         padding: 15px 32px;

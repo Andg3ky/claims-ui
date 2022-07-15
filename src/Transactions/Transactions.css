@@ -1,6 +1,6 @@
 
-.table {
-    margin-left: 570px;
+.tableData {
+    margin-left: 200px;
     margin-bottom: 30px;
 }
 
@@ -19,4 +19,8 @@ table, th, td {
 .transactionsTable td, .transactionsTable th {
     padding: 3px;
     border: 1px solid #999;
+}
+
+.showDetailBtn {
+    cursor: pointer;
 }

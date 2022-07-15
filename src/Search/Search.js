@@ -10,12 +10,12 @@ return  <div class="searchContainer">
         </div>
         <p>Enter a policy number or part of the customer's surname</p>
         <label htmlFor="policyNumber">Policy Number:</label>
-        <input class="searchEntry" id="policyNumber" type="number" />
+        <input className="searchEntry" id="policyNumber" type="number" />
         <br></br> 
         <label htmlFor="surName">Surname:</label>
-        <input class="searchEntry" id="surName" type="text" />
+        <input className="searchEntry" id="surName" type="text" />
         <br></br>
-        <button type="button" class="searchButton">Search</button>
+        <button type="button" className="searchButton">Search</button>
     </div>
 </div>
 

@@ -36,3 +36,7 @@ table, th, td {
 .openClaimsBox label, input, button {
     margin: 10px;
 }
+
+.openBtn {
+    cursor: pointer;
+}

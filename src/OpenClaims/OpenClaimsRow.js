@@ -1,7 +1,7 @@
 const OpenClaimsRow = (props) => {
 
     return <tr><th>{props.id}</th><th>{props.policy}</th><th>{props.surname}</th><th>{props.status}</th>
-    <th><button>{props.button}</button></th></tr>
+    <th><button className="openBtn">{props.button}</button></th></tr>
 
 }
 

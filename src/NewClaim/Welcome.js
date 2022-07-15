@@ -2,9 +2,9 @@ import './NewClaims.css'
 
 const Welcome = () => {
 
-    return( <div class="boxed">
-        <h1 class="welcome">Welcome</h1>
-        <p class="par">
+    return( <div className="welcomeBox">
+        <h1 className="welcome">Welcome</h1>
+        <p className="par">
         <strong>Direct Claims, voted the best new small claims online site 
           for Property, Motor and Pet claims.</strong>
           <br></br>

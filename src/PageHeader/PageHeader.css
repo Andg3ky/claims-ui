@@ -30,6 +30,7 @@
     font-size: 1.5em;
     color: #00FF00;
     cursor: pointer;
+    position: sticky;
 }
 
 /* Change color of dropdown links on hover */
