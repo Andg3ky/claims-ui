@@ -28,13 +28,18 @@
     display:inline;
     padding: 20px;
     font-size: 1.5em;
-    color: #00FF00;
     cursor: pointer;
     position: sticky;
+    color:  #00FF00;
 }
 
-/* Change color of dropdown links on hover */
+/* Change color of dropdown links on hover for the menu */
 .pageHeader ul.nav li:hover {
   padding: 20px;
-  background-color: floralwhite;
+  background-color: #f0f0f3;
 }
+
+/* Link get transpiled to an <a> */
+a {
+    color: #00FF00;
+  }

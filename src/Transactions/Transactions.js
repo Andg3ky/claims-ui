@@ -2,13 +2,24 @@ import { getAllClaims } from '../Data/DataFunctions';
 import TransactionRow from './TransactionRow';
 import './Transactions.css';
 
-const Transactions = () => {
+const Transactions = (props) => {
 
     const transactions = getAllClaims();
 
-    const displayTransactions = transactions.map ( trans => 
-        <TransactionRow key={trans.id} id={trans.id} policynumber={trans.policynumber} customer={trans.customer} status={trans.status} type={trans.type}
-        address={trans.address} estimatedvalue={trans.estimatedvalue} dateofclaim={trans.dateofclaim} reason={trans.reason} />
+    const displayTransactions = transactions
+        .filter(trans => props.searchTerm=== "" || props.searchTerm === trans.policynumber)
+        .map ( trans => 
+        <TransactionRow 
+        key={trans.id} 
+        id={trans.id} 
+        policynumber={trans.policynumber} 
+        customer={trans.customer} 
+        status={trans.status} 
+        type={trans.type}
+        address={trans.address} 
+        estimatedvalue={trans.estimatedvalue} 
+        dateofclaim={trans.dateofclaim} 
+        reason={trans.reason} />
     );
 
     return <div className="tableData"> 

@@ -1,9 +1,12 @@
+import { Link } from "react-router-dom";
+
 const Menu = (props) => {
 
     return <ul className="nav">
-        <li onClick={ () => props.setSelectedPage("new")}>New Claim</li>
-        <li onClick={ () => props.setSelectedPage("open")}>OpenClaims</li>
-        <li onClick={ () => props.setSelectedPage("find")}>Search</li>
+        <li><Link to="/welcome"> Welcome</Link></li>
+        <li><Link to="/new"> New Claim</Link></li>
+        <li><Link to="/open"> Open Claims</Link></li>
+        <li><Link to="/find"> Search Claims</Link></li>
         <li>Archive</li>
     </ul>
 

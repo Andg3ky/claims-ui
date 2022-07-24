@@ -15,12 +15,16 @@ const OpenClaims = () => {
         </thead>
         <tbody>
         
-        <OpenClaimsRow id="1" policy="5051" surname="James" status="Open" button="Open" />
-        <OpenClaimsRow id="2" policy="1256" surname="Harrison" status="Rejected" button="Open" />
-        <OpenClaimsRow id="3" policy="7835" surname="Willis" status="Paid" button="Open" />
-        <OpenClaimsRow id="4" policy="9335" surname="Burton" status="Rejected" button="Open" />
-        <OpenClaimsRow id="5" policy="3998" surname="Smith" status="Open" button="Open" />
-        <OpenClaimsRow id="6" policy="6689" surname="Johnson" status="Paid" button="Open" />
+        <OpenClaimsRow id="101" policy="5051" surname="James" status="Open" button="Open" />
+        <OpenClaimsRow id="102" policy="1256" surname="Harrison" status="Rejected" button="Open" />
+        <OpenClaimsRow id="103" policy="7835" surname="Willis" status="Paid" button="Open" />
+        <OpenClaimsRow id="104" policy="9335" surname="Burton" status="Rejected" button="Open" />
+        <OpenClaimsRow id="105" policy="3998" surname="Smith" status="Open" button="Open" />
+        <OpenClaimsRow id="106" policy="6689" surname="Johnson" status="Paid" button="Open" />
+        <OpenClaimsRow id="107" policy="5054" surname="Cole" status="Open" button="Open" />
+        <OpenClaimsRow id="108" policy="9129" surname="Bailey" status="Rejected" button="Open" />
+        <OpenClaimsRow id="109" policy="1033" surname="Stewart" status="Paid" button="Open" />
+        <OpenClaimsRow id="110" policy="4724" surname="Graham" status="Open" button="Open" />
 
         </tbody>
         </table>

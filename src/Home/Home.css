@@ -1,0 +1,41 @@
+/* Welcome */
+
+/* Boxed Welcome message Box */
+.welcomeBox {
+    border: 10px solid #00FF00;
+    width: 1020px;
+    margin-left: 430px;
+    margin-bottom: 10px;
+    background-color: #0000FF;
+    color:  #ffffff;
+    margin-top: 20px;
+  }
+
+  .welcome{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 20px;
+  }
+  
+  /* Paragraph Welcome message Box */
+  .par{
+    padding-left: 20px;
+    padding-bottom: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    letter-spacing: 1.2px;
+    line-height: 25px;
+  }
+
+/* images */
+.images{
+    width: auto;
+    height: auto;
+    margin-left: 0px;
+    margin-top: 0px;
+  }
+
+.imagesize {
+  min-height: 0px;
+  min-width: 0px; 
+  
+}

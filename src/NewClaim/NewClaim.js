@@ -1,20 +1,16 @@
 import './NewClaims.css'
-import Welcome from "./Welcome"
-import Images from "./Images"
 
 const NewClaim = () => {
 
     //Register New Claim entry form
-    return( <div> <Welcome />
-            <div><Images /></div>
-
+    return( <div> 
         <div className="newContainer">
       <h2>Register new claim</h2>
       <form action="somepage.html" method="post">
 
         {/* Policy Number */}
         <label htmlFor="registerPolicyNumber">Policy Number *</label>
-        <input type="number" name="registerpolicyNumber" id="registerpolicyNumber" required />
+        <input type="number"  placeholder="policy number" name="registerpolicyNumber" id="registerpolicyNumber" required />
 
         {/* Type of Insurance */}
         <label>Type of Insurance *</label>
@@ -63,25 +59,25 @@ const NewClaim = () => {
 
         {/* First Name */}
         <label htmlFor="firstName">First Name *</label>
-        <input type="text" name="firstName" id="firstName" required />
+        <input type="text" placeholder="first name" name="firstName" id="firstName" required />
         {/* Surname */}
         <label htmlFor="registersurname">Surname *</label>
-        <input type="text" name="registersurname" id="registersurname" required />
+        <input type="text" placeholder="surname" name="registersurname" id="registersurname" required />
         {/* Claim Start Date */}
         <label htmlFor="Claim Start">Claim Start Date</label>
         <input type="date" id="claimStart" name="claimStart" />
         {/* Claim Amount */}
         <label htmlFor="Claim Amount">Claim Amount (approx)</label>
-        <input type="number" name="claimAmount" id="claimAmount" required />
+        <input type="text" placeholder="claim amount" name="claimAmount" id="claimAmount" required />
         {/* Reason for Claim */}
         <label htmlFor="Claim Reason">Claim Reason (Please enter details)</label>
-        <input type="text" name="claimReason" id="claimReason" required />
+        <input type="text" placeholder="claim reason" name="claimReason" id="claimReason" required />
         {/* Description of Incident leading up to Claim */}
         <label htmlFor="Incident Description">Incident Description (Please enter details)</label>
-        <textarea name="incidentDescription" id="incidentDescription" rows="4" cols="70"></textarea>
+        <textarea name="incidentDescription" placeholder="incident description" id="incidentDescription" rows="4" cols="70"></textarea>
         <br></br>
         {/* Register Button */}
-        <button type="button" className="button">Register</button>
+        <button type="submit" className="button">Register</button>
       </form>
     </div>
     </div>
