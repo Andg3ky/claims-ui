@@ -45,7 +45,7 @@ return  <div className="searchContainer">
             </div>
             {/* Search Button */}
             <button type="submit" disabled={!valid} className="searchButton">Search</button>
-            {touched && !valid && <p className="notValid">Please enter a valid order id</p>}
+            {touched && !valid && <p className="notValid">Please enter a valid policy number</p>}
         </form>
     </div>
 </div>

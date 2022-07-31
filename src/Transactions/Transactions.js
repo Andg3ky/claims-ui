@@ -22,10 +22,11 @@ const Transactions = (props) => {
         reason={trans.reason} />
     );
 
+    //Search Table return
     return <div className="tableData"> 
         <table className="transactionsTable">
         <thead>
-        <tr><th>Claim ID</th><th>Policy Number</th><th>Name</th><th>Status</th><th></th></tr>
+        <tr><th>Claim ID</th><th>Policy Number</th><th>Customer</th><th>Status</th><th></th></tr>
         </thead>
         <tbody>
         {displayTransactions}
