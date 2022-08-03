@@ -1,7 +1,9 @@
 
 .tableData {
-    margin-left: 580px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 30px;
+    width: fit-content;
 }
 
 table, th, td {
@@ -12,7 +14,6 @@ table, th, td {
 
 .transactionsTable {
     margin-top: 50px;
-    margin-left: 100px;
     border-collapse: collapse;
     border: 1px solid #999;
 }

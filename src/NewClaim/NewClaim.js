@@ -38,7 +38,7 @@ const NewClaim = () => {
 
         {/* Policy Number */}
         <label htmlFor="registerPolicyNumber">Policy Number *</label>
-        <input type="number"  placeholder="policy number" name="registerpolicyNumber" id="registerpolicyNumber" 
+        <input type="text"  placeholder="policy number" name="registerpolicyNumber" id="registerpolicyNumber" 
          onChange={handleChange} value={policyNumber} />
 
         {/* Type of Insurance */}

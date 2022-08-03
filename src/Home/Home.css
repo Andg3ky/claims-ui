@@ -3,8 +3,9 @@
 /* Boxed Welcome message Box */
 .welcomeBox {
     border: 10px solid #00FF00;
-    width: 1020px;
-    margin-left: 430px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 10px;
     background-color: #0000FF;
     color:  #ffffff;
