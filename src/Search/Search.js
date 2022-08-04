@@ -48,6 +48,7 @@ return  <div className="searchContainer">
             {touched && !valid && <p className="notValid">Please enter a valid policy number</p>}
         </form>
     </div>
+    
 </div>
 
 }
