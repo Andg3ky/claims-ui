@@ -5,12 +5,13 @@ const Welcome = () => {
     return( <div className="welcomeBox">
         <h1 className="welcome">Welcome</h1>
         <p className="par">
-        <strong>Direct Claims, voted the best new small claims online site 
+        <strong>Direct Claims, voted the best new small claims online website 
           for Property, Motor and Pet claims.</strong>
           <br></br>
           <br></br>
-        <strong>Do you need to make a new claim? 
+        <strong>Do you need to make a new claim under $500? 
             Do you have questions? You’re in the right place.
+            Submit your claim now with Direct Claims.
         </strong>
         <br></br>
         <br></br>

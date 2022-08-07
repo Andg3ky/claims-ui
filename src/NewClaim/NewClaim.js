@@ -5,7 +5,8 @@ const NewClaim = () => {
 
     //empty list of fields to map different properties
     const emptyNewClaim = { policyNumber: "", typeOfInsurance: "", title: "", firstName: "",
-      surName: "", claimStart: new Date().toISOString().slice(0,10) , claimAmount: "", claimReason: "", incidentDescription: ""}
+      surName: "", claimStart: new Date().toISOString().slice(0,10) , claimAmount: "", claimReason: "", incidentDescription: "",
+      propertyAddress: "", vehicleMake: "", vehicleModel: "", vehicleYear: "", petType: "", petBreed: ""}
 
     //standard Reducer function to use with each form - START
     const newClaimReducer = (state, data) => {
@@ -22,7 +23,8 @@ const NewClaim = () => {
     //standard Reducer function to use with each form - END
 
     //destructuring
-    const {policyNumber, title, firstName, surName, claimStart, claimAmount, claimReason, incidentDescription} = newClaim;
+    const {policyNumber, title, firstName, surName, claimStart, claimAmount, claimReason, incidentDescription,
+    propertyAddress, vehicleMake, vehicleModel, vehicleYear, petType, petBreed} = newClaim;
 
     //Submit of Form - NOTE to put in Axios Link in DataFunctions
     const submitForm = (e) => {
@@ -77,12 +79,41 @@ const NewClaim = () => {
         <label htmlFor="Claim Amount">Estimated Claim Amount (approx)</label>
         <input type="text" placeholder="claim amount - $0.00" name="claimAmount" id="claimAmount" onChange={handleChange} value={claimAmount}/>
         {/* Reason for Claim */}
-        <label htmlFor="Claim Reason">Claim Reason (Please enter details)</label>
+        <label htmlFor="Claim Reason">Claim Reason (Enter details)</label>
         <input type="text" placeholder="reason for claim" name="claimReason" id="claimReason" onChange={handleChange} value={claimReason} />
         {/* Description of Incident leading up to Claim */}
-        <label htmlFor="Incident Description">Incident Description (Please enter details)</label>
-        <textarea name="incidentDescription" placeholder="incident description" id="incidentDescription" onChange={handleChange} value={incidentDescription} rows="4" cols="70"></textarea>
+        <label htmlFor="Incident Description">Incident Description (Enter details)</label>
+        <textarea name="incidentDescription" placeholder="Enter incident description" id="incidentDescription" onChange={handleChange} value={incidentDescription} rows="4" cols="62"></textarea>
+
         <br></br>
+
+        {/* Property Address - if property radio button is selected */}
+        <div id="myPropertyDIV">
+          <label htmlFor="propertyAddress">Property Address</label>
+          <textarea name="propertyAddress" placeholder="Enter property address" id="propertyAddress" onChange={handleChange} value={propertyAddress}  rows="4" cols="60"></textarea>
+        </div>
+
+        {/* Vehicle Make - if motor radio button is selected */}
+        <div id="myMotorDIV">
+          <label htmlFor="vehicleMake">Vehicle Make</label>
+          <input type="text" name="vehicleMake" placeholder="vehicle make" id="vehicleMake" onChange={handleChange} value={vehicleMake} />
+        {/* Vehicle Model - if motor radio button is selected */}
+          <label htmlFor="vehicleModel">Vehicle Model</label>
+           <input type="text" name="vehicleModel" placeholder="vehicle model" id="vehicleModel" onChange={handleChange} value={vehicleModel} />
+        {/* Vehicle Year - if motor radio button is selected */}
+          <label htmlFor="vehicleYear">Vehicle Year</label>
+          <input type="number" name="vehicleYear" placeholder="vehicle year" id="vehicleYear" onChange={handleChange} value={vehicleYear} />
+        </div>
+
+        {/* Pet Type - if pet radio button is selected */}
+        <div id="myPetDIV">
+         <label htmlFor="petType">Pet Type</label>
+         <input type="text" name="petType" placeholder="pet type(i.e dog, cat)" id="petType" onChange={handleChange} value={petType} />
+        {/* Pet Breed - if pet radio button is selected */}
+         <label htmlFor="petBreed">Pet Breed</label>
+         <input type="text" name="petBreed" placeholder="pet breed(i.e. terrior, bulldog, maine coon)" id="petBreed" onChange={handleChange} value={petBreed} />
+        </div>
+
         {/* Register Button */}
         <button type="submit" className="button">Register</button>
       </form>
