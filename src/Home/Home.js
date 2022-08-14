@@ -1,6 +1,6 @@
 import './Home.css'
-import Welcome from "./Welcome"
 import Images from "./Images"
+import Welcome from './Welcome';
 
 const Home = () => {
 

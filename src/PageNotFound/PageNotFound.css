@@ -1,0 +1,11 @@
+
+/* Page Not Found 404 Message */
+
+.pageNotFound {
+    background-color: #0000FF;
+    min-height: 50px;
+    width: 98%;
+    padding: 10px;
+    color: #FFFF;
+    font: normal 30px 'Open Sans', cursive;
+}

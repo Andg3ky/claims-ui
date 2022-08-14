@@ -40,8 +40,8 @@ return  <div className="searchContainer">
             {/* Surname */}
             <div className="searchEntry">
                 <label htmlFor="registersurname">Surname *</label>
-                 <input type="text" placeholder="surname" name="registersurname" 
-                 id="registersurname" />
+                <input type="text" placeholder="surname" 
+                name="registersurname" id="registersurname" />
             </div>
             {/* Search Button */}
             <button type="submit" disabled={!valid} className="searchButton">Search</button>
