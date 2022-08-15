@@ -1,18 +1,48 @@
-import { getAllClaims } from '../Data/DataFunctions';
+import { getAllClaimsAxiosVersion } from '../Data/DataFunctions';
 import TransactionRow from './TransactionRow';
 import './Transactions.css';
+import {useState, useEffect} from 'react';
 
 const Transactions = (props) => {
 
-    const transactions = getAllClaims();
+    const [transactions, setTransactions] = useState([]);
 
+    const getTransactionsDataFromServer = () => 
+    {
+         const paymentsPromise = getAllClaimsAxiosVersion();
+         paymentsPromise.then (
+            (response) => {
+                console.log(response)
+                if(response.status === 200) {
+                    setTransactions(response.data);    
+                }
+                else {
+                    console.log("Something went wrong", response.status);
+                }
+            }
+        )
+            .catch (
+                (error) => {
+                    console.log("Server error", error);
+                }
+            );
+
+    }
+
+    //The useEffect means run only once
+    useEffect( () => {
+        getTransactionsDataFromServer();
+    } , [] );
+
+   // const transaction = getAllClaims();
+    
     const displayTransactions = transactions
-        .filter(trans => props.searchTerm=== "" || props.searchTerm === trans.policynumber)
+        .filter(trans => props.searchTerm=== "" || props.searchTerm === trans.policyNumber)
         .map ( trans => 
         <TransactionRow 
         key={trans.id} 
         id={trans.id} 
-        policynumber={trans.policynumber} 
+        policyNumber={trans.policyNumber} 
         customer={trans.customer} 
         status={trans.status} 
         type={trans.type}
@@ -32,8 +62,10 @@ const Transactions = (props) => {
         {displayTransactions}
         </tbody>
         </table>
-    </div>
+    
+        {transactions.length === 0 && <p>Please wait... loading data</p>}
 
+    </div>
 }
 
 export default Transactions;
