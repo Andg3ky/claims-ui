@@ -33,8 +33,6 @@ const Transactions = (props) => {
     useEffect( () => {
         getTransactionsDataFromServer();
     } , [] );
-
-   // const transaction = getAllClaims();
     
     const displayTransactions = transactions
         .filter(trans => props.searchTerm=== "" || props.searchTerm === trans.policyNumber)

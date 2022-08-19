@@ -62,6 +62,12 @@
       border-collapse: collapse;
   }
   
+  .insuranceSpecificTitle {
+    font: normal 20px 'Open Sans', cursive;
+    background: #0000FF;
+    color: #FFFFFF;
+  }
+
   /* Register button */
   .button {
     background-color: #0000FF;; /* blue */

@@ -38,6 +38,11 @@ const NewClaim = () => {
       <h2>Register new claim</h2>
       <form onSubmit={submitForm} >
 
+       {/* Policy Number */}
+        <label htmlFor="registerPolicyNumber">Policy Number *</label>
+        <input type="text"  placeholder="(i.e 9 digit policy number)" name="registerpolicyNumber" id="registerpolicyNumber" 
+         onChange={handleChange} value={policyNumber} />
+
         {/* Type of Insurance */}
         <label>Type of Insurance *</label>
         <div className="radio-container">
@@ -51,11 +56,6 @@ const NewClaim = () => {
           <input type="radio" id="pet" value="pet" name="insuranceType" onChange={handleChange} />
           <label className="radio-label" htmlFor="pet">pet</label>
         </div>
-
-        {/* Policy Number */}
-        <label htmlFor="registerPolicyNumber">Policy Number *</label>
-        <input type="number"  placeholder="(i.e 9 digit policy number)" name="registerpolicyNumber" id="registerpolicyNumber" 
-         onChange={handleChange} value={policyNumber} />
 
         {/* Title of Person */}
         <label htmlFor="title">Title *</label>
@@ -84,6 +84,10 @@ const NewClaim = () => {
         {/* Description of Incident leading up to Claim */}
         <label htmlFor="Incident Description">Incident Description (Enter details)</label>
         <textarea name="incidentDescription" placeholder="Enter incident description" id="incidentDescription" onChange={handleChange} value={incidentDescription} rows="4" cols="62"></textarea>
+
+        <div>
+            <h1 className="insuranceSpecificTitle">Insurance Type Specific Fields</h1>
+        </div>
 
         <br></br>
 
