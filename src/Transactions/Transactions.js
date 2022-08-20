@@ -54,8 +54,15 @@ const Transactions = (props) => {
     return <div className="tableData"> 
         <table className="transactionsTable">
         <thead>
-        <tr><th>Claim ID</th><th>Policy Number</th><th>Customer</th><th>Status</th><th></th></tr>
+        <tr>
+            <th>Claim ID</th>
+            <th>Policy Number</th>
+            <th>Customer</th>
+            <th>Status</th>
+            <th>Edit Claim</th>
+        </tr>
         </thead>
+
         <tbody>
         {displayTransactions}
         </tbody>

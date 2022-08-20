@@ -27,14 +27,15 @@ return  <div className="searchContainer">
         <div>
             <h1 className="searchTitle">Search</h1>
         </div>
+
              {/* Bind our form to an event */}
         <form onSubmit={doSearch}>
             <p>Enter a policy number or part of the customer's surname</p>
             {/* Policy Number */}
             <div className="searchEntry">
-                <label htmlFor="registerPolicyNumber">Policy Number *</label>
+                <label htmlFor="policyNumber">Policy Number *</label>
                  <input onChange={handleChange} value={searchTerm} type="text"  placeholder="policy number" 
-                 name="registerpolicyNumber" id="registerpolicyNumber" />
+                 name="policyNumber" id="policyNumber" />
             </div>
 
             {/* Surname */}
@@ -48,7 +49,6 @@ return  <div className="searchContainer">
             {touched && !valid && <p className="notValid">Please enter a valid policy number</p>}
         </form>
     </div>
-    
 </div>
 
 }

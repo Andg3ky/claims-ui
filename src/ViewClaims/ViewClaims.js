@@ -1,9 +1,52 @@
+import { getAllClaimsAxiosVersion } from '../Data/DataFunctions';
+import { useEffect, useState } from "react";
 import ViewClaimsRow from "./ViewClaimsRow";
 import './ViewClaims.css';
 
 const ViewClaims = () => {
 
-    
+    const [transactions, setTransactions] = useState([]);
+
+    const getTransactionsDataFromServer = () => 
+    {
+         const paymentsPromise = getAllClaimsAxiosVersion();
+         paymentsPromise.then (
+            (response) => {
+                console.log(response)
+                if(response.status === 200) {
+                    setTransactions(response.data);    
+                }
+                else {
+                    console.log("Something went wrong", response.status);
+                }
+            }
+        )
+            .catch (
+                (error) => {
+                    console.log("Server error", error);
+                }
+            );
+
+    }
+
+    //The useEffect means run only once
+    useEffect( () => {
+      getTransactionsDataFromServer();
+    } , [] );
+
+    const viewTransactions = transactions.map (trans => 
+        <ViewClaimsRow 
+        key={trans.id} 
+        id={trans.id} 
+        policyNumber={trans.policyNumber} 
+        customer={trans.customer} 
+        status={trans.status} 
+        type={trans.type}
+        address={trans.address} 
+        estimatedvalue={trans.estimatedvalue} 
+        dateOfClaim={trans.dateOfClaim} 
+        reason={trans.reason} />
+    );
 
     return <div className="viewclaimsContainer">
     <div className="viewClaimsBox">
@@ -36,24 +79,18 @@ const ViewClaims = () => {
                 <th>Type</th>
                 <th>Name</th>
                 <th>Date of Claim</th>
-                <th>Status</th>
-                <th></th>
+                <th>Status{}</th>
+                <th>View Claim</th>
             </tr>
            </thead>
 
-         <tbody>
-          <ViewClaimsRow id="101" policy="923880431" type="Property" surname="Mr Alan James" dateofclaim="2022-05-25" status="Awaiting Assessment" button="View" />
-          <ViewClaimsRow id="102" policy="973621146" type="Auto" surname="Miss Daisy Harrison" dateofclaim="2022-04-01" status="Rejected" button="View" />
-          <ViewClaimsRow id="103" policy="900632137" type="Pet" surname="Mr James Willis" dateofclaim="2022-01-10" status="In Progress" button="View" />
-          <ViewClaimsRow id="104" policy="912989853" type="Auto" surname="Mrs Samantha Burton" dateofclaim="2022-02-18" status="Rejected" button="View" />
-          <ViewClaimsRow id="105" policy="934324234" type="Pet" surname="Mr John Smith" dateofclaim="2021-11-30" status="Awaiting Assessment" button="View" />
-          <ViewClaimsRow id="106" policy="923444656" type="Property" surname="Mrs Talia Johnson" dateofclaim="2021-10-13" status="Awaiting Payment" button="View" />
-          <ViewClaimsRow id="107" policy="980380734" type="Property" surname="Mr Michael Cole" dateofclaim="2021-06-23" status="Accepted and Paid" button="View" />
-          <ViewClaimsRow id="108" policy="924343889" type="Pet" surname="Mrs Jane Bailey" dateofclaim="2021-11-06" status="Transferred to Main Claims" button="View" />
-          <ViewClaimsRow id="109" policy="975260750" type="Auto" surname="Mr Grant Stewart" dateofclaim="2022-04-19" status="Accepted and Paid" button="View" />
-          <ViewClaimsRow id="110" policy="977308734" type="Auto" surname="Miss Libby Graham" dateofclaim="2022-02-22" status="In Progress" button="View" />
-         </tbody>
+           <tbody>
+          {viewTransactions}
+        </tbody>
         </table>
+
+        {transactions.length === 0 && <p>Please wait... loading data</p>}
+
         </div>
       </div>
     </div>

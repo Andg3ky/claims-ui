@@ -56,15 +56,15 @@ const NewClaim = () => {
           
           <input type="radio" id="property" value="property" name="insuranceType" 
           checked={selectedRadio === "property"} onChange={changeHandler} />
-          <label className="radio-label" htmlFor="property">property</label>
+          <label className="radio-label" htmlFor="property">Property</label>
 
           <input type="radio" id="motor" value="motor" name="insuranceType" 
           checked={selectedRadio === "motor"} onChange={changeHandler} />
-          <label className="radio-label" htmlFor="motor">motor</label>
+          <label className="radio-label" htmlFor="motor">Motor</label>
 
           <input type="radio" id="pet" value="pet" name="insuranceType" 
           checked={selectedRadio === "pet"} onChange={changeHandler} />
-          <label className="radio-label" htmlFor="pet">pet</label>
+          <label className="radio-label" htmlFor="pet">Pet</label>
         </div>
 
         {/* Title of Person */}

@@ -46,7 +46,4 @@ export const getClaimsRestExample = () => {
                 console.log("something went wrong", error);
             }
         );
-
-
-
 }
