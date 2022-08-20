@@ -62,6 +62,10 @@
       border-collapse: collapse;
   }
   
+  [aria-hidden="true"] {
+    display: none;
+  }
+
   .insuranceSpecificTitle {
     font: normal 20px 'Open Sans', cursive;
     background: #0000FF;
