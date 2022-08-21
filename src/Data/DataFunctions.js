@@ -8,42 +8,23 @@ export const getAllClaimsAxiosVersion = () => {
     return claimsPromise;
 }
 
-export const getClaims = (id) => {
+export const addNewClaim = () =>  {
+    return axios({ url : "http://localhost:8080/api/direct-claims-server/", 
+    method : "POST", 
+    headers : {'Accept': 'application/json', 'Content-Type' : 'application/json' } });
+}
+
+export const updateClaim = (id) =>  {
+    return axios({ url : "http://localhost:8080/api/direct-claims-server/" + id, 
+    method : "PUT", 
+    headers : {'Accept': 'application/json', 'Content-Type' : 'application/json' } } );
+}
+
+export const getClaim = (id) => {
     return axios(
         {url : `http://localhost:8080/api/direct-claims-server/${id}`,
         method: "GET",
-        headers : { 'Accept': 'application/json'}
+        headers : {'Accept': 'application/json'}
         }
-    )
-}
-
-export const getClaimsRestExample = () => {
-    //GET  http://localhost:8080/api/direct-claims-server
-
-    const headers = new Headers({ 'Accept': 'application/json' });
-
-    const claimsPromise = fetch("http://localhost:8080/api/direct-claims-server/",
-        { method: "GET", headers: headers });
-
-    claimsPromise.then(
-        (response) => {
-             if(response.ok) {
-                    const dataPromise = response.json();
-                    dataPromise.then ( data => {
-                        console.log(data);
-                    }
-                  )
-            }
-            else {
-                console.log("Something went wrong - the server responded with",
-                    response.status, response.statusText);
-            }
-
-        }
-    )
-        .catch(
-            (error) => {
-                console.log("something went wrong", error);
-            }
-        );
+        )
 }

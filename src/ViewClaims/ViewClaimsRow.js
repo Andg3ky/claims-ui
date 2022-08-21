@@ -1,4 +1,12 @@
+import { useNavigate } from "react-router";
+
 const ViewClaimsRow = (props) => {
+
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate(`/display/${props.id}`);
+    }
 
     return <tr>
         <th>{props.id}</th>
@@ -7,7 +15,7 @@ const ViewClaimsRow = (props) => {
         <th>{props.customer}</th>
         <th>{props.dateOfClaim}</th>
         <th>{props.status}</th>
-        <th><button className="viewBtn">View</button></th>
+        <th><button onClick={handleClick} className="showDetailBtn">View</button></th>
     </tr>
 
 }
