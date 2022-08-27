@@ -9,6 +9,7 @@ import DisplayClaim from './DisplayClaim/DisplayClaim';
 import PageNotFound from './PageNotFound/PageNotFound';
 import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
 import Login from './Login/Login';
+import EditClaim from './EditClaim/EditClaim';
 
 function App() {
   
@@ -23,6 +24,7 @@ function App() {
         <Route path="/new" element = {<NewTransaction />} />
         <Route path="/view" element = {<ViewTransactions />} />
         <Route path="/display/:id" element = {<DisplayClaim />} />
+        <Route path="/edit/:id" element = {<EditClaim />} />
         <Route path="/find" element = {<FindATransaction />} />
         <Route path="/login" element = {<Login />} />
         <Route path="*" element = {<PageNotFound />} />

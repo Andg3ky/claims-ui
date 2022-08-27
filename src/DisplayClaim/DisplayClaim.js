@@ -1,5 +1,5 @@
 import { Fragment, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { getClaim } from '../Data/DataFunctions';
 
 const DisplayClaim = () => {
@@ -9,8 +9,9 @@ const DisplayClaim = () => {
 
     const [transaction, setTransaction] = useState(emptyTransaction);
 
+    const navigate = useNavigate();
+
     const params = useParams();
-    debugger;
     getClaim(params.id)
         .then( response => {
             if (response.status === 200) {
@@ -22,6 +23,9 @@ const DisplayClaim = () => {
         } )
         .catch(error => console.log("error occurred", error));
 
+    const edit = () => {
+        navigate("/edit/" + params.id);
+    }
 
     return (<div className="viewclaimsContainer">
         <Fragment> 
@@ -36,12 +40,13 @@ const DisplayClaim = () => {
                     <tr><th>Policy Number</th><td>{transaction.policyNumber}</td></tr>
                     <tr><th>Customer Address</th><td>{transaction.address}</td></tr>
                     <tr><th>Customer</th><td>{transaction.customer}</td></tr>
-                    <tr><th>Date of Claim</th><td>{transaction.Date}</td></tr>
+                    <tr><th>Date of Claim</th><td>{transaction.date}</td></tr>
                     <tr><th>Claim Reason</th><td>{transaction.reason}</td></tr>
                     <tr><th>Claim Status</th><td>{transaction.status}</td></tr>
                     <tr><th>Insurance Type</th><td>{transaction.type}</td></tr>
                 </tbody>
             </table>
+            <button onClick={edit}>Edit</button>
             </div>
         </Fragment>
         </div>

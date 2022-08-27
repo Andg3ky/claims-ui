@@ -8,7 +8,7 @@ export const getAllClaimsAxiosVersion = () => {
     return claimsPromise;
 }
 
-export const addNewClaim = () =>  {
+export const addNewClaim = (id) =>  {
     return axios({ url : "http://localhost:8080/api/direct-claims-server/", 
     method : "POST", 
     headers : {'Accept': 'application/json', 'Content-Type' : 'application/json' } });
@@ -22,9 +22,7 @@ export const updateClaim = (id) =>  {
 
 export const getClaim = (id) => {
     return axios(
-        {url : `http://localhost:8080/api/direct-claims-server/${id}`,
+        {url : "http://localhost:8080/api/direct-claims-server/" + id,
         method: "GET",
-        headers : {'Accept': 'application/json'}
-        }
-        )
+        headers : {'Accept': 'application/json' } } );
 }

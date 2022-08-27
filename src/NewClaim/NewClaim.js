@@ -4,8 +4,8 @@ import './NewClaims.css'
 const NewClaim = () => {
 
     //empty list of fields to map different properties
-    const emptyNewClaim = { policyNumber: "", typeOfInsurance: "", title: "", firstName: "",
-      surName: "", claimStart: new Date().toISOString().slice(0,10) , claimAmount: "", claimReason: "", incidentDescription: "",
+    const emptyNewClaim = { policyNumber: "", typeOfInsurance: "", title: "", customerName: "",
+      claimStart: new Date().toISOString().slice(0,10) , claimAmount: "", claimReason: "", incidentDescription: "",
       propertyAddress: "", vehicleMake: "", vehicleModel: "", vehicleYear: "", petType: "", petBreed: ""}
 
     //standard Reducer function to use with each form - START
@@ -23,7 +23,7 @@ const NewClaim = () => {
     //standard Reducer function to use with each form - END
 
     //destructuring
-    const {policyNumber, title, firstName, surName, claimStart, claimAmount, claimReason, incidentDescription,
+    const {policyNumber, title, customerName, claimStart, claimAmount, claimReason, incidentDescription,
     propertyAddress, vehicleMake, vehicleModel, vehicleYear, petType, petBreed} = newClaim;
 
     //Submit of Form - NOTE to put in Axios Link in DataFunctions
@@ -76,13 +76,9 @@ const NewClaim = () => {
           <option value="Mx">Mx</option>
         </select>
 
-        {/* First Name */}
-        <label htmlFor="firstName">First Name *</label>
-        <input type="text" placeholder="first name" name="firstName" id="firstName" onChange={handleChange} value={firstName} />
-
-        {/* Surname */}
-        <label htmlFor="registerSurname">Surname *</label>
-        <input type="text" placeholder="surname" name="surName" id="surName" onChange={handleChange} value={surName} />
+        {/* Customer Name */}
+        <label htmlFor="customerName">Customer Name *</label>
+        <input type="text" placeholder="customer name" name="customerName" id="customerName" onChange={handleChange} value={customerName} />
 
         {/* Claim Start Date */}
         <label htmlFor="Claim Start">Claim Start Date</label>

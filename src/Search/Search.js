@@ -28,9 +28,9 @@ return  <div className="searchContainer">
             <h1 className="searchTitle">Search</h1>
         </div>
 
-             {/* Bind our form to an event */}
+        {/* Bind our form to an event */}
         <form onSubmit={doSearch}>
-            <p>Enter a policy number or part of the customer's surname</p>
+            <p>Enter a policy number or part of the customer's name</p>
             {/* Policy Number */}
             <div className="searchEntry">
                 <label htmlFor="policyNumber">Policy Number *</label>
@@ -40,9 +40,9 @@ return  <div className="searchContainer">
 
             {/* Surname */}
             <div className="searchEntry">
-                <label htmlFor="registersurname">Surname *</label>
-                <input type="text" placeholder="surname" 
-                name="registersurname" id="registersurname" />
+                <label htmlFor="customerName">Customer Name *</label>
+                <input type="text" placeholder="customer name" 
+                name="customerName" id="customerName" />
             </div>
             {/* Search Button */}
             <button type="submit" disabled={!valid} className="searchButton">Search</button>

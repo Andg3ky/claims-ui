@@ -11,7 +11,10 @@ const FindATransaction = ()=> {
     const params = useParams();
     if (params.policyNumber != null && params.policyNumber !== searchTerm) {
         setSearchTerm(params.policyNumber);
-    }   
+    }
+    if (params.customerName != null && params.customerName !== searchTerm) {
+        setSearchTerm(params.customerName);
+    }      
 
     return ( <Fragment>
                 <Search setSearchTerm={setSearchTerm}/>

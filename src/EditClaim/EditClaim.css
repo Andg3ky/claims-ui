@@ -1,0 +1,45 @@
+
+/*displays the border of the container */
+.displayclaimsContainer {
+    width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background: #fff;
+    border: 10px solid #00FF00;
+    padding: 10px;
+}
+
+.displayClaimsTitle {
+    font: normal 36px 'Open Sans', cursive;
+    background: #0000FF;
+    color: #FFFFFF;
+}
+
+.tableData {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    width: fit-content;
+}
+
+table, th, td {
+    border: 1px solid black;
+    background-color: #0000FF;
+    color: #FFFF;
+  }
+
+.transactionsTable {
+    margin-top: 50px;
+    border-collapse: collapse;
+    border: 1px solid #999;
+}
+.transactionsTable td, .transactionsTable th {
+    padding: 3px;
+    border: 1px solid #999;
+}
+
+.showDetailBtn {
+    cursor: pointer;
+}
