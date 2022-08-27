@@ -1,5 +1,7 @@
 import { useReducer, useState } from 'react'
 import './NewClaims.css'
+import { useParams } from "react-router";
+import { addNewClaim } from '../Data/DataFunctions';
 
 const NewClaim = () => {
 
@@ -22,6 +24,9 @@ const NewClaim = () => {
     }
     //standard Reducer function to use with each form - END
 
+    const [message, setMessage] = useState("")
+    const [saving, setSaving] = useState(false);
+
     //destructuring
     const {policyNumber, title, customerName, claimStart, claimAmount, claimReason, incidentDescription,
     propertyAddress, vehicleMake, vehicleModel, vehicleYear, petType, petBreed} = newClaim;
@@ -30,6 +35,8 @@ const NewClaim = () => {
     const submitForm = (e) => {
       e.preventDefault();
       console.log(newClaim);
+      setSaving(true);
+      setMessage("please wait - registering new claim")
     }
 
     //Radio Button trigger of additional fields
@@ -38,6 +45,23 @@ const NewClaim = () => {
     const changeHandler = e => {
       setSelectedRadio(e.target.value);
     };
+
+    const params = useParams();
+
+    let data = {};
+    let response;
+    response = addNewClaim(params.id, data);
+
+    response.then ( result => {
+      if (result.status === 200) {
+        
+      }
+      else {
+          setMessage ("something went wrong ", result.statusText)
+      }
+      setSaving(false);
+    })
+      
 
     //Register New Claim entry form
     return( <div> 
@@ -138,7 +162,8 @@ const NewClaim = () => {
         </div>
 
         {/* Register Button */}
-        <button type="submit" className="button">Register</button>
+        <button disabled={saving} type="submit" className="button">Register</button>
+        <p>{message}</p>
       </form>
     </div>
     </div>
