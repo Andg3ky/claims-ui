@@ -6,9 +6,9 @@ import { addNewClaim } from '../Data/DataFunctions';
 const NewClaim = () => {
 
     //empty list of fields to map different properties
-    const emptyNewClaim = { policyNumber: "", typeOfInsurance: "", title: "", customerName: "",
+    const emptyNewClaim = { policyNumber: "", typeOfInsurance: "", title: "", customerName: "", customerAddress: "",
       claimStart: new Date().toISOString().slice(0,10) , claimAmount: "", claimReason: "", incidentDescription: "",
-      propertyAddress: "", vehicleMake: "", vehicleModel: "", vehicleYear: "", petType: "", petBreed: ""}
+      propertyAddressImpacted: "", vehicleMake: "", vehicleModel: "", vehicleYear: "", petType: "", petBreed: ""}
 
     //standard Reducer function to use with each form - START
     const newClaimReducer = (state, data) => {
@@ -28,8 +28,8 @@ const NewClaim = () => {
     const [saving, setSaving] = useState(false);
 
     //destructuring
-    const {policyNumber, title, customerName, claimStart, claimAmount, claimReason, incidentDescription,
-    propertyAddress, vehicleMake, vehicleModel, vehicleYear, petType, petBreed} = newClaim;
+    const {policyNumber, title, customerName, customerAddress, claimStart, claimAmount, claimReason, incidentDescription,
+      propertyAddressImpacted, vehicleMake, vehicleModel, vehicleYear, petType, petBreed} = newClaim;
 
     //Submit of Form - NOTE to put in Axios Link in DataFunctions
     const submitForm = (e) => {
@@ -54,7 +54,7 @@ const NewClaim = () => {
 
     response.then ( result => {
       if (result.status === 200) {
-        
+        console.log(response)
       }
       else {
           setMessage ("something went wrong ", result.statusText)
@@ -70,7 +70,7 @@ const NewClaim = () => {
       <form onSubmit={submitForm} >
 
        {/* Policy Number */}
-        <label htmlFor="registerPolicyNumber">Policy Number *</label>
+        <label htmlFor="registerPolicyNumber">Policy Number</label>
         <input type="text"  placeholder="(i.e 9 digit policy number)" name="policyNumber" id="policyNumber" 
          onChange={handleChange} value={policyNumber} />
 
@@ -92,7 +92,7 @@ const NewClaim = () => {
         </div>
 
         {/* Title of Person */}
-        <label htmlFor="title">Title *</label>
+        <label htmlFor="title">Title</label>
         <select id="title" name="title" onChange={handleChange} value={title}>
           <option value="" defaultValue>-- select --</option>
           <option value="Mr">Mr</option>
@@ -101,8 +101,12 @@ const NewClaim = () => {
         </select>
 
         {/* Customer Name */}
-        <label htmlFor="customerName">Customer Name *</label>
+        <label htmlFor="customerName">Customer Name</label>
         <input type="text" placeholder="customer name" name="customerName" id="customerName" onChange={handleChange} value={customerName} />
+
+        {/* Customer Address */}
+        <label htmlFor="customerAddress">Customer Address</label>
+        <input type="text" placeholder="customer address" name="customerAddress" id="customerAddress" onChange={handleChange} value={customerAddress} />
 
         {/* Claim Start Date */}
         <label htmlFor="Claim Start">Claim Start Date</label>
@@ -119,7 +123,7 @@ const NewClaim = () => {
         {/* Description of Incident leading up to Claim */}
         <label htmlFor="Incident Description">Incident Description (Enter details)</label>
         <textarea name="incidentDescription" placeholder="Enter incident description" id="incidentDescription" onChange={handleChange} 
-        value={incidentDescription} rows="4" cols="62"></textarea>
+        value={incidentDescription} rows="3" cols="63"></textarea>
 
         <div>
             <h1 className="insuranceSpecificTitle">Insurance Type Specific Fields</h1>
@@ -127,12 +131,12 @@ const NewClaim = () => {
 
         <br></br>
 
-        {/* Property Address - if property radio button is selected */}
+        {/* Property Address Impacted - if property radio button is selected */}
         <div aria-hidden={selectedRadio !== "property" ? true : false}>
           <div id="myPropertyDIV">
-            <label htmlFor="propertyAddress">Property Address</label>
-            <textarea name="propertyAddress" placeholder="Enter property address" id="propertyAddress" onChange={handleChange} 
-           value={propertyAddress}  rows="4" cols="60"></textarea>
+            <label htmlFor="propertyAddressImpacted">Property Address Impacted</label>
+            <textarea name="propertyAddressImpacted" placeholder="Enter property address affected" id="propertyAddressImpacted" onChange={handleChange} 
+           value={propertyAddressImpacted} rows="3" cols="63"></textarea>
           </div>
         </div>
 
