@@ -28,7 +28,7 @@ const NewClaim = () => {
     const [saving, setSaving] = useState(false);
 
     //destructuring
-    const {policyNumber, title, customerName, customerAddress, claimStart, claimAmount, claimReason, incidentDescription,
+    const {policyNumber, customerName, customerAddress, claimStart, claimAmount, claimReason, incidentDescription,
       propertyAddressImpacted, vehicleMake, vehicleModel, vehicleYear, petType, petBreed} = newClaim;
 
     //Submit of Form - NOTE to put in Axios Link in DataFunctions
@@ -91,14 +91,14 @@ const NewClaim = () => {
           <label className="radio-label" htmlFor="pet">Pet</label>
         </div>
 
-        {/* Title of Person */}
+        {/* Title of Person 
         <label htmlFor="title">Title</label>
         <select id="title" name="title" onChange={handleChange} value={title}>
           <option value="" defaultValue>-- select --</option>
           <option value="Mr">Mr</option>
           <option value="Ms">Mrs</option>
           <option value="Mx">Mx</option>
-        </select>
+        </select> */}
 
         {/* Customer Name */}
         <label htmlFor="customerName">Customer Name</label>
