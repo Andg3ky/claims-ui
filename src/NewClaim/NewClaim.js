@@ -61,7 +61,11 @@ const NewClaim = () => {
       }
       setSaving(false);
     })
-      
+    .catch (error => {
+      setMessage("something went wrong ", error)
+      setSaving(false);
+  })
+
 
     //Register New Claim entry form
     return( <div> 
@@ -101,8 +105,8 @@ const NewClaim = () => {
         </select> */}
 
         {/* Customer Name */}
-        <label htmlFor="customerName">Customer Name</label>
-        <input type="text" placeholder="customer name" name="customerName" id="customerName" onChange={handleChange} value={customerName} />
+        <label htmlFor="customerName">Customer Full Name</label>
+        <input type="text" placeholder="full customer name (i.e Mr/Ms/Mx)" name="customerName" id="customerName" onChange={handleChange} value={customerName} />
 
         {/* Customer Address */}
         <label htmlFor="customerAddress">Customer Address</label>

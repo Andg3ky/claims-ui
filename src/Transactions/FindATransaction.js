@@ -12,8 +12,8 @@ const FindATransaction = ()=> {
     if (params.policyNumber != null && params.policyNumber !== searchTerm) {
         setSearchTerm(params.policyNumber);
     }
-    if (params.customerName != null && params.customerName !== searchTerm) {
-        setSearchTerm(params.customerName);
+    if (params.customer != null && params.customer !== searchTerm) {
+        setSearchTerm(params.customer);
     }      
 
     return ( <Fragment>
