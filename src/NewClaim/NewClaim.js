@@ -1,21 +1,20 @@
 import { useReducer, useState } from 'react'
 import './NewClaims.css'
-import { useParams } from "react-router";
 import { addNewClaim } from '../Data/DataFunctions';
 
 const NewClaim = () => {
 
     //empty list of fields to map different properties
-    const emptyNewClaim = { policyNumber: "", typeOfInsurance: "", title: "", customerName: "", customerAddress: "",
-      claimStart: new Date().toISOString().slice(0,10) , claimAmount: "", claimReason: "", incidentDescription: "",
-      propertyAddressImpacted: "", vehicleMake: "", vehicleModel: "", vehicleYear: "", petType: "", petBreed: ""}
+    const emptyNewClaim = { policyNumber: "", type: "", customer: "", address: "",
+      claimStart: new Date().toISOString().slice(0,10) , estimatedValue: "", reason: "", incidentDescription: "",
+      addressImpacted: "", motorMake: "", motorModel: "", motorYear: "", petType: "", petBreed: ""}
 
     //standard Reducer function to use with each form - START
     const newClaimReducer = (state, data) => {
        return {...state, [data.field] : data.value}
     }
 
-    const [newClaim, dispatch] = useReducer(newClaimReducer, emptyNewClaim);
+    const [newTransaction, dispatch] = useReducer(newClaimReducer, emptyNewClaim);
 
     //new data we want to send to our Reducer function
     const handleChange = (event) => {
@@ -27,45 +26,43 @@ const NewClaim = () => {
     const [message, setMessage] = useState("")
     const [saving, setSaving] = useState(false);
 
-    //destructuring
-    const {policyNumber, customerName, customerAddress, claimStart, claimAmount, claimReason, incidentDescription,
-      propertyAddressImpacted, vehicleMake, vehicleModel, vehicleYear, petType, petBreed} = newClaim;
+//Radio Button trigger of additional fields
+const [selectedRadio, setSelectedRadio] = useState("");
+    
+const changeHandler = e => {
+  setSelectedRadio(e.target.value);
+};
 
-    //Submit of Form - NOTE to put in Axios Link in DataFunctions
+//const params = useParams();
+
+    //destructuring
+    const {policyNumber, type, customer, address, claimStart, estimatedValue, reason, incidentDescription,
+      addressImpacted, motorMake, motorModel, motorYear, petType, petBreed} = newTransaction;
+
     const submitForm = (e) => {
       e.preventDefault();
-      console.log(newClaim);
+      console.log(newTransaction);
       setSaving(true);
       setMessage("please wait - registering new claim")
-    }
-
-    //Radio Button trigger of additional fields
-    const [selectedRadio, setSelectedRadio] = useState("");
     
-    const changeHandler = e => {
-      setSelectedRadio(e.target.value);
-    };
-
-    const params = useParams();
-
-    let data = {};
     let response;
-    response = addNewClaim(params.id, data);
+    response = addNewClaim(newTransaction);
 
     response.then ( result => {
       if (result.status === 200) {
         console.log(response)
       }
       else {
-          setMessage ("something went wrong ", result.statusText)
+          setMessage ("something went wrong first error ", result.statusText)
       }
       setSaving(false);
     })
     .catch (error => {
-      setMessage("something went wrong ", error)
+      setMessage("something went wrong second error ", error)
       setSaving(false);
   })
 
+}
 
     //Register New Claim entry form
     return( <div> 
@@ -82,7 +79,7 @@ const NewClaim = () => {
         <label>Type of Insurance </label>
         <div className="radio-container">
           
-          <input type="radio" id="property" value="property" name="insuranceType" 
+          <input type="radio" id="property" value="property" name="type" 
           checked={selectedRadio === "property"} onChange={changeHandler} />
           <label className="radio-label" htmlFor="property">Property</label>
 
@@ -106,11 +103,11 @@ const NewClaim = () => {
 
         {/* Customer Name */}
         <label htmlFor="customerName">Customer Full Name</label>
-        <input type="text" placeholder="full customer name (i.e Mr/Ms/Mx)" name="customerName" id="customerName" onChange={handleChange} value={customerName} />
+        <input type="text" placeholder="full customer name (i.e Mr/Ms/Mx)" name="customer" id="customer" onChange={handleChange} value={customer} />
 
         {/* Customer Address */}
         <label htmlFor="customerAddress">Customer Address</label>
-        <input type="text" placeholder="customer address" name="customerAddress" id="customerAddress" onChange={handleChange} value={customerAddress} />
+        <input type="text" placeholder="customer address" name="address" id="address" onChange={handleChange} value={address} />
 
         {/* Claim Start Date */}
         <label htmlFor="Claim Start">Claim Start Date</label>
@@ -118,11 +115,11 @@ const NewClaim = () => {
 
         {/* Claim Amount */}
         <label htmlFor="Claim Amount">Estimated Claim Amount (approx)</label>
-        <input type="text" placeholder="claim amount - $0.00" name="claimAmount" id="claimAmount" onChange={handleChange} value={claimAmount}/>
+        <input type="text" placeholder="claim amount - $0.00" name="estimatedValue" id="estimatedValue" onChange={handleChange} value={estimatedValue}/>
 
         {/* Reason for Claim */}
         <label htmlFor="Claim Reason">Claim Reason (Enter details)</label>
-        <input type="text" placeholder="reason for claim" name="claimReason" id="claimReason" onChange={handleChange} value={claimReason} />
+        <input type="text" placeholder="reason for claim" name="reason" id="reason" onChange={handleChange} value={reason} />
 
         {/* Description of Incident leading up to Claim */}
         <label htmlFor="Incident Description">Incident Description (Enter details)</label>
@@ -139,22 +136,23 @@ const NewClaim = () => {
         <div aria-hidden={selectedRadio !== "property" ? true : false}>
           <div id="myPropertyDIV">
             <label htmlFor="propertyAddressImpacted">Property Address Impacted</label>
-            <textarea name="propertyAddressImpacted" placeholder="Enter property address affected" id="propertyAddressImpacted" onChange={handleChange} 
-           value={propertyAddressImpacted} rows="3" cols="63"></textarea>
+            <textarea name="addressImpacted" placeholder="Enter property address affected" id="addressImpacted" onChange={handleChange} 
+           value={addressImpacted} rows="3" cols="63"></textarea>
           </div>
         </div>
 
-        {/* Vehicle Make - if motor radio button is selected */}
+        {/* Motor Make/Model/Year - if motor radio button is selected */}
         <div aria-hidden={selectedRadio !== "motor" ? true : false}>
           <div id="myMotorDIV">
-           <label htmlFor="vehicleMake">Vehicle Make</label>
-            <input type="text" name="vehicleMake" placeholder="vehicle make" id="vehicleMake" onChange={handleChange} value={vehicleMake} />
-        {/* Vehicle Model - if motor radio button is selected */}
-            <label htmlFor="vehicleModel">Vehicle Model</label>
-            <input type="text" name="vehicleModel" placeholder="vehicle model" id="vehicleModel" onChange={handleChange} value={vehicleModel} />
-        {/* Vehicle Year - if motor radio button is selected */}
-            <label htmlFor="vehicleYear">Vehicle Year</label>
-            <input type="number" name="vehicleYear" placeholder="vehicle year" id="vehicleYear" onChange={handleChange} value={vehicleYear} />
+        {/* Motor Make */}
+           <label htmlFor="motorMake">Motor Make</label>
+            <input type="text" name="motorMake" placeholder="motor make" id="motorMake" onChange={handleChange} value={motorMake} />
+        {/* Motor Model */}
+            <label htmlFor="vehicleModel">Motor Model</label>
+            <input type="text" name="motorModel" placeholder="motor model" id="motorModel" onChange={handleChange} value={motorModel} />
+        {/* Motor Year */}
+            <label htmlFor="motorYear">Motor Year</label>
+            <input type="number" name="motorYear" placeholder="motor year" id="motorYear" onChange={handleChange} value={motorYear} />
           </div>
         </div>
 
@@ -170,7 +168,7 @@ const NewClaim = () => {
         </div>
 
         {/* Register Button */}
-        <button disabled={saving} type="submit" className="button">Register</button>
+        <button disabled={saving} onSubmit={submitForm} type="submit" className="button">Register</button>
         <p>{message}</p>
       </form>
     </div>

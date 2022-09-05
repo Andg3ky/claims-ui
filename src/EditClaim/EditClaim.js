@@ -46,7 +46,8 @@ const EditClaim = () => {
 
     const [saving, setSaving] = useState(false);
     
-    const submitForm = (e) => {
+    const submitForm = (event) => {
+       
         setSaving(true);
 
     let response;
@@ -62,28 +63,28 @@ const EditClaim = () => {
         if (address !== transaction.address) {
             data = {...data, address : address};
         };  
-        if (dateOfClaim !== transactionToEdit.dateOfClaim) {
+        if (dateOfClaim !== transaction.dateOfClaim) {
             data = {...data, dateOfClaim : dateOfClaim};
         };
-        if (estimatedValue !== transactionToEdit.estimatedValue) {
+        if (estimatedValue !== transaction.estimatedValue) {
             data = {...data, estimatedValue : estimatedValue};
         };
-        if (reason !== transactionToEdit.reason) {
+        if (reason !== transaction.reason) {
             data = {...data, reason : reason};
         };
-        if (reason !== transactionToEdit.incidentDescription) {
+        if (reason !== transaction.incidentDescription) {
             data = {...data, incidentDescription : incidentDescription};
         };
-        if (address !== transactionToEdit.address) {
+        if (address !== transaction.address) {
             data = {...data, address : address};
         };        
-        if (addressImpacted !== transactionToEdit.addressImpacted) {
+        if (addressImpacted !== transaction.addressImpacted) {
             data = {...data, addressImpacted : addressImpacted};
         };
-        if (motorMake !== transactionToEdit.motorMake) {
+        if (motorMake !== transaction.motorMake) {
             data = {...data, motorMake : motorMake};
         };
-        if (motorModel !== transactionToEdit.motorModel) {
+        if (motorModel !== transaction.motorModel) {
             data = {...data, motorModel : motorModel};
         };
         if (type !== transactionToEdit.motorYear) {
@@ -130,6 +131,24 @@ const EditClaim = () => {
         useEffect( () => {
             submitForm();
         } , [] );
+
+
+    //task code
+    const [input,setInput] = useState('')
+  const [list, setList] = useState([])
+
+  const addItem = () => {
+    const task = {
+      content: input,
+      id: Date.now()
+    }
+    setList(list.concat(task))
+  }
+
+  const removeItem = (id) => {
+    setList(list.filter(i => i.id !== id))
+  }
+
 
     return (
    <div className="viewclaimsContainer">
@@ -216,17 +235,29 @@ const EditClaim = () => {
                     <input type="text" name ="insuranceType" placeholder= "insurance type" id="insuranceType" 
                     onChange={handleChange} defaultValue={transaction.type}/>
 
-            </form>
             <button disabled={saving} onSubmit={submitForm} type="submit">Update Claim Details</button>
             <button onClick={update} type="submit">Return to Display Claim</button>
+            </form>
             </div>
         </Fragment>
 
         {/* Claim Notes */}
         <label htmlFor="claimNotes">Notes: </label>
         <textarea name="claimNotes" placeholder="Actions to be taken" id="claimNotes" onChange={handleChange} rows="2" cols="64"></textarea>
-
+    
+        {/* Tasks */}
+        <label htmlFor="taskList">Task List for Claim </label>
+        <div>
+         <input type={'text'}  onChange={ (e) => setInput(e.target.value)} />
+         <button onClick={addItem}> Add to list </button>
         </div>
+        <div>
+         {list.map(item => (
+         <div key={item.id} onClick={() => removeItem(item.id)} style={{border: '1px solid #000', padding: '10px', margin: '10px'}}> {item.content} </div>
+        ))}
+        </div>
+
+      </div>
     );
 }
 

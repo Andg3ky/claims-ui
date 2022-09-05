@@ -3,12 +3,6 @@ import './Search.css'
 
 const Search = (props) => {
 
-// Set up stateful Visibility
-const [visible, setVisible] = useState(false);
-const toggleVisibility = () => {
-    setVisible(!visible);
-}
-
 const [searchTerm, setSearchTerm] = useState("");
 // test if valid entry to the box
 const [valid, setValid] = useState(false);
