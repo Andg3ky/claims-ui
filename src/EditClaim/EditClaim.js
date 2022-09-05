@@ -54,37 +54,37 @@ const EditClaim = () => {
     
     if (editMode) {
         let data = {};
-        if (policyNumber !== transaction.policyNumber) {
+        if (policyNumber !== transactionToEdit.policyNumber) {
             data = {...data, policyNumber : policyNumber};
         };
-        if (customer !== transaction.customer) {
+        if (customer !== transactionToEdit.customer) {
             data = {...data, customer : customer};
         };
-        if (address !== transaction.address) {
+        if (address !== transactionToEdit.address) {
             data = {...data, address : address};
         };  
-        if (dateOfClaim !== transaction.dateOfClaim) {
+        if (dateOfClaim !== transactionToEdit.dateOfClaim) {
             data = {...data, dateOfClaim : dateOfClaim};
         };
-        if (estimatedValue !== transaction.estimatedValue) {
+        if (estimatedValue !== transactionToEdit.estimatedValue) {
             data = {...data, estimatedValue : estimatedValue};
         };
-        if (reason !== transaction.reason) {
+        if (reason !== transactionToEdit.reason) {
             data = {...data, reason : reason};
         };
-        if (reason !== transaction.incidentDescription) {
+        if (reason !== transactionToEdit.incidentDescription) {
             data = {...data, incidentDescription : incidentDescription};
         };
-        if (address !== transaction.address) {
+        if (address !== transactionToEdit.address) {
             data = {...data, address : address};
         };        
-        if (addressImpacted !== transaction.addressImpacted) {
+        if (addressImpacted !== transactionToEdit.addressImpacted) {
             data = {...data, addressImpacted : addressImpacted};
         };
-        if (motorMake !== transaction.motorMake) {
+        if (motorMake !== transactionToEdit.motorMake) {
             data = {...data, motorMake : motorMake};
         };
-        if (motorModel !== transaction.motorModel) {
+        if (motorModel !== transactionToEdit.motorModel) {
             data = {...data, motorModel : motorModel};
         };
         if (type !== transactionToEdit.motorYear) {
@@ -131,24 +131,6 @@ const EditClaim = () => {
         useEffect( () => {
             submitForm();
         } , [] );
-
-
-    //task code
-    const [input,setInput] = useState('')
-  const [list, setList] = useState([])
-
-  const addItem = () => {
-    const task = {
-      content: input,
-      id: Date.now()
-    }
-    setList(list.concat(task))
-  }
-
-  const removeItem = (id) => {
-    setList(list.filter(i => i.id !== id))
-  }
-
 
     return (
    <div className="viewclaimsContainer">
@@ -235,27 +217,11 @@ const EditClaim = () => {
                     <input type="text" name ="insuranceType" placeholder= "insurance type" id="insuranceType" 
                     onChange={handleChange} defaultValue={transaction.type}/>
 
-            <button disabled={saving} onSubmit={submitForm} type="submit">Update Claim Details</button>
+            <button onClick={update} disabled={saving} onSubmit={submitForm} type="submit">Update Claim Details</button>
             <button onClick={update} type="submit">Return to Display Claim</button>
             </form>
             </div>
         </Fragment>
-
-        {/* Claim Notes */}
-        <label htmlFor="claimNotes">Notes: </label>
-        <textarea name="claimNotes" placeholder="Actions to be taken" id="claimNotes" onChange={handleChange} rows="2" cols="64"></textarea>
-    
-        {/* Tasks */}
-        <label htmlFor="taskList">Task List for Claim </label>
-        <div>
-         <input type={'text'}  onChange={ (e) => setInput(e.target.value)} />
-         <button onClick={addItem}> Add to list </button>
-        </div>
-        <div>
-         {list.map(item => (
-         <div key={item.id} onClick={() => removeItem(item.id)} style={{border: '1px solid #000', padding: '10px', margin: '10px'}}> {item.content} </div>
-        ))}
-        </div>
 
       </div>
     );

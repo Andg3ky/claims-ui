@@ -43,8 +43,3 @@ table, th, td {
 .showDetailBtn {
     cursor: pointer;
 }
-
-/*Task List */
-.taskHeader {
-    float: left;
-}

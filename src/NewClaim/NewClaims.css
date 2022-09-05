@@ -22,6 +22,11 @@
       border: 10px solid #00FF00;
       padding: 10px;
   }
+
+  .instructions {
+    text-align: left;
+    color: #00f;
+  }
   
   form label {
       color: #00f;

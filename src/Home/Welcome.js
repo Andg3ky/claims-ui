@@ -3,7 +3,7 @@ import './Home.css'
 const Welcome = () => {
 
     return( <div className="welcomeBox">
-        <h1 className="welcome">Welcome</h1>
+        <h1 data-testid="h1" className="welcome">Welcome</h1>
         <p className="par">
         <strong>Direct Claims, voted the best new small claims online website 
           for Property, Motor and Pet claims.</strong>

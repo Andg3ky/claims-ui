@@ -67,13 +67,26 @@ const changeHandler = e => {
     //Register New Claim entry form
     return( <div> 
         <div className="newContainer">
-      <h2>Register new claim</h2>
+      <h2 data-testid="h2">Register new claim</h2>
+
+      <div className="instructions">
+        <h3>Instructions</h3>
+        <ul>
+          <li>Please fill in the fields for the claim.</li>
+          <li>Click Register to record new claim.</li>
+        </ul>
+      </div>
+
+      <div>
+            <h1 className="insuranceSpecificTitle">Claim Form</h1>
+      </div>
+
       <form onSubmit={submitForm} >
 
        {/* Policy Number */}
         <label htmlFor="registerPolicyNumber">Policy Number</label>
         <input type="text"  placeholder="(i.e 9 digit policy number)" name="policyNumber" id="policyNumber" 
-         onChange={handleChange} value={policyNumber} />
+         onChange={handleChange} value={policyNumber} required />
 
          {/* Type of Insurance */}
         <label>Type of Insurance </label>
@@ -103,23 +116,23 @@ const changeHandler = e => {
 
         {/* Customer Name */}
         <label htmlFor="customerName">Customer Full Name</label>
-        <input type="text" placeholder="full customer name (i.e Mr/Ms/Mx)" name="customer" id="customer" onChange={handleChange} value={customer} />
+        <input type="text" placeholder="full customer name (i.e Mr/Ms/Mx)" name="customer" id="customer" onChange={handleChange} value={customer} required />
 
         {/* Customer Address */}
         <label htmlFor="customerAddress">Customer Address</label>
-        <input type="text" placeholder="customer address" name="address" id="address" onChange={handleChange} value={address} />
+        <input type="text" placeholder="customer address" name="address" id="address" onChange={handleChange} value={address} required />
 
         {/* Claim Start Date */}
         <label htmlFor="Claim Start">Claim Start Date</label>
-        <input type="date" id="claimStart" name="claimStart" onChange={handleChange} value={claimStart}/>
+        <input type="date" id="claimStart" name="claimStart" onChange={handleChange} value={claimStart} />
 
         {/* Claim Amount */}
         <label htmlFor="Claim Amount">Estimated Claim Amount (approx)</label>
-        <input type="text" placeholder="claim amount - $0.00" name="estimatedValue" id="estimatedValue" onChange={handleChange} value={estimatedValue}/>
+        <input type="text" placeholder="claim amount - $0.00" name="estimatedValue" id="estimatedValue" onChange={handleChange} value={estimatedValue} required/>
 
         {/* Reason for Claim */}
         <label htmlFor="Claim Reason">Claim Reason (Enter details)</label>
-        <input type="text" placeholder="reason for claim" name="reason" id="reason" onChange={handleChange} value={reason} />
+        <input type="text" placeholder="reason for claim" name="reason" id="reason" onChange={handleChange} value={reason} required />
 
         {/* Description of Incident leading up to Claim */}
         <label htmlFor="Incident Description">Incident Description (Enter details)</label>

@@ -30,18 +30,25 @@ return  <div className="searchContainer">
 
         {/* Bind our form to an event */}
         <form onSubmit={doSearch}>
-            <p>Enter a policy number or customer's name</p>
+
+            <div className="searchInstructions">
+            <h3>Instructions</h3>
+            <ul>
+             <li>Please fill in the fields for the claim.</li>
+             <li>Click Register to record new claim.</li>
+            </ul>
+            </div>
             
             {/* Policy Number */}
             <div className="searchEntry">
-                <label htmlFor="policyNumber">Policy Number *</label>
+                <label htmlFor="policyNumber">Policy Number</label>
                  <input onChange={handleChange} value={searchTerm} type="text"  placeholder="policy number" 
                  name="policyNumber" id="policyNumber" />
             </div>
 
             {/* Customer Name */}
             <div className="searchEntry">
-                <label htmlFor="customerName">Customer Name *</label>
+                <label htmlFor="customerName">Customer Name</label>
                 <input type="text" placeholder="customer name" 
                 name="customerName" id="customerName" />
             </div>

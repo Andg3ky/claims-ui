@@ -1,3 +1,8 @@
+.searchInstructions{
+    text-align: left;
+    color: #00f;
+}
+
 .searchBox {
     text-align: center;
     margin-top: 50px;

@@ -51,7 +51,7 @@ const ViewClaims = () => {
     return <div className="viewclaimsContainer">
     <div className="viewClaimsBox">
         <div>
-            <h1 className="viewClaimsTitle">View Claims</h1>
+            <h1 data-testid="h1" className="viewClaimsTitle">View Claims</h1>
         </div>
 
         <div className="viewClaimsFilter">
