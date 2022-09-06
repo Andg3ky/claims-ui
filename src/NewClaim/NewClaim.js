@@ -93,15 +93,15 @@ const changeHandler = e => {
         <div className="radio-container">
           
           <input type="radio" id="property" value="property" name="type" 
-          checked={selectedRadio === "property"} onChange={changeHandler} />
+          checked={type === "property"} onChange={handleChange} />
           <label className="radio-label" htmlFor="property">Property</label>
 
-          <input type="radio" id="motor" value="motor" name="insuranceType" 
-          checked={selectedRadio === "motor"} onChange={changeHandler} />
+          <input type="radio" id="motor" value="motor" name="type" 
+          checked={type === "motor"} onChange={handleChange} />
           <label className="radio-label" htmlFor="motor">Motor</label>
 
-          <input type="radio" id="pet" value="pet" name="insuranceType" 
-          checked={selectedRadio === "pet"} onChange={changeHandler} />
+          <input type="radio" id="pet" value="pet" name="type" 
+          checked={type === "pet"} onChange={handleChange} />
           <label className="radio-label" htmlFor="pet">Pet</label>
         </div>
 

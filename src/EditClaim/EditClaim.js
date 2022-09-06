@@ -8,7 +8,7 @@ const EditClaim = () => {
     estimatedValue : "", reason : "", incidentDescription : "", addressImpacted: "", motorMake : "", motorModel : "", motorYear: "", 
     petType : "", petBreed : "", status : "", type : ""}
 
-    const [transaction, setTransaction] = useState(emptyTransaction);
+    const [transactionToEdit, setTransaction] = useState(emptyTransaction);
 
     const navigate = useNavigate();
 
@@ -30,11 +30,10 @@ const EditClaim = () => {
 
     const transactionToEditId = params.id;
     const editMode = transactionToEditId != null;
-    //EDIT
-    const transactionToEdit = (state => state.transactionToEdit);
+    
 
     const [editTransaction, dispatch] = 
-    useReducer(editTransactionReducer , editMode ? transactionToEdit : emptyTransaction);
+    useReducer(editTransactionReducer , transactionToEdit);
 
     const handleChange = (event) => {
         const dataToChange = { field : event.target.id, value : event.target.value };
@@ -145,77 +144,77 @@ const EditClaim = () => {
                     {/* Policy Number */}
                      <label htmlFor="registerPolicyNumber">Policy Number</label>
                      <input type="text"  placeholder="(i.e 9 digit policy number)" name="policyNumber" id="policyNumber" 
-                     onChange={handleChange} defaultValue={transaction.policyNumber} />
+                     onChange={handleChange} value={editTransaction.policyNumber} />
 
                     {/* Customer Name */}
                     <label htmlFor="customerName">Customer Name</label>
                     <input type="text" placeholder="customer name" name="customerName" id="customerName" 
-                    onChange={handleChange} defaultValue={transaction.customer} />
+                    onChange={handleChange} value={editTransaction.customer} />
 
                     {/* Customer Address */}
                     <label htmlFor="customerAddress">Customer Address</label>
                     <input type="text" placeholder="customer address" name="customerAddress" id="customerAddress" 
-                    onChange={handleChange} defaultValue={transaction.address} />
+                    onChange={handleChange} value={editTransaction.address} />
 
                     {/* Claim Start Date */}
                     <label htmlFor="Claim Start">Claim Start Date</label>
                     <input type="text" placeholder="claim start date" id="claimStart" name="claimStart" 
-                    onChange={handleChange} defaultValue={transaction.dateOfClaim}/>
+                    onChange={handleChange} value={editTransaction.dateOfClaim}/>
 
                     {/* Claim Amount */}
                     <label htmlFor="Claim Amount">Claim Estimated Value($)</label>
                     <input type="text" placeholder="claim amount - $0.00" name="claimAmount" id="claimAmount" 
-                    onChange={handleChange} defaultValue={transaction.estimatedValue}/>
+                    onChange={handleChange} value={editTransaction.estimatedValue}/>
 
                     {/* Reason for Claim */}
                     <label htmlFor="Claim Reason">Claim Reason (Enter details)</label>
                     <input type="text" placeholder="reason for claim" name="claimReason" id="claimReason" 
-                    onChange={handleChange} defaultValue={transaction.reason} />
+                    onChange={handleChange} value={editTransaction.reason} />
 
                     {/* Description of Incident leading up to Claim */}
                     <label htmlFor="Incident Description">Incident Description (Enter details)</label>
                     <textarea name="incidentDescription" placeholder="Enter incident description" id="incidentDescription" 
-                    onChange={handleChange} defaultValue={transaction.incidentDescription} rows="3" cols="63"></textarea>
+                    onChange={handleChange} value={editTransaction.incidentDescription} rows="3" cols="63"></textarea>
 
                     {/* Insurance Type Specific Fields Start */}
                     <label htmlFor="propertyAddressImpacted">Property Impacted* (Property Only)</label>
                     <textarea name="propertyAddressImpacted" placeholder="Enter property address affected" id="propertyAddressImpacted" 
-                    onChange={handleChange} defaultValue={transaction.addressImpacted} rows="3" cols="63"></textarea>
+                    onChange={handleChange} value={editTransaction.addressImpacted} rows="3" cols="63"></textarea>
 
                     {/* Vehicle Make */}
                     <label htmlFor="vehicleMake">Vehicle Make* (Motor Only)</label>
                     <input type="text" name="vehicleMake" placeholder="vehicle make" id="vehicleMake" 
-                    onChange={handleChange} defaultValue={transaction.motorMake} />
+                    onChange={handleChange} value={editTransaction.motorMake} />
 
                     {/* Vehicle Model */}
                     <label htmlFor="vehicleModel">Vehicle Model* (Motor Only)</label>
                     <input type="text" name="vehicleModel" placeholder="vehicle model" id="vehicleModel" 
-                    onChange={handleChange} defaultValue={transaction.motorModel} />
+                    onChange={handleChange} value={editTransaction.motorModel} />
 
                     {/* Vehicle Year */}
                     <label htmlFor="vehicleYear">Vehicle Year* (Motor Only)</label>
                     <input type="number" name="vehicleYear" placeholder="vehicle year" id="vehicleYear" 
-                    onChange={handleChange} defaultValue={transaction.motorYear} />
+                    onChange={handleChange} value={editTransaction.motorYear} />
 
                     {/* Pet Type */}
                     <label htmlFor="petType">Pet Type* (Pet Only)</label>
                     <input type="text" name="petType" placeholder="pet type(i.e dog, cat)" id="petType" 
-                    onChange={handleChange} defaultValue={transaction.petType} />
+                    onChange={handleChange} value={editTransaction.petType} />
 
                     {/* Pet Breed */}
                     <label htmlFor="petBreed">Pet Breed* (Pet Only)</label>
                     <input type="text" name="petBreed" placeholder="pet breed(i.e. terrior, bulldog, maine coon)" id="petBreed" 
-                    onChange={handleChange} defaultValue={transaction.petBreed} />
+                    onChange={handleChange} value={editTransaction.petBreed} />
 
                     {/* Claim Status */}
                     <label htmlFor="claimStatus">Claim Status</label>
                     <input type="text" name="claimStatus" placeholder="claim status" id="claimStatus" 
-                    onChange={handleChange} defaultValue={transaction.status} />
+                    onChange={handleChange} value={editTransaction.status} />
 
                     {/* Insurance Type */}
                     <label htmlFor="insuranceType">Type of Insurance </label>
                     <input type="text" name ="insuranceType" placeholder= "insurance type" id="insuranceType" 
-                    onChange={handleChange} defaultValue={transaction.type}/>
+                    onChange={handleChange} value={editTransaction.type}/>
 
             <button onClick={update} disabled={saving} onSubmit={submitForm} type="submit">Update Claim Details</button>
             <button onClick={update} type="submit">Return to Display Claim</button>
