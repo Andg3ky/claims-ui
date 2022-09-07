@@ -13,11 +13,17 @@ const DisplayClaim = () => {
     const navigate = useNavigate();
     
     const params = useParams();
+    const [isDisabled, setDisabled] = useState(false);
     useEffect( () => {
     getClaim(params.id)
         .then( response => {
             if (response.status === 200) {
                 setTransaction(response.data);
+                const claimStatus = response.data.status;
+    
+        if(claimStatus === "Rejected"||claimStatus ==="Accepted and Paid") {
+            setDisabled(true);
+        }
             }
             else {
                 console.log("Something went wrong", response.status);
@@ -27,13 +33,8 @@ const DisplayClaim = () => {
     }, [] );
     
     //use state to check if Claim is rejected/accepted and paid then disable Edit button - start
-    const [isDisabled, setDisabled] = useState(false);
-    const claimStatus = transaction.status;
-    useEffect(() => {
-        if(claimStatus === ("Rejected")) {
-            setDisabled(true);
-        }
-    }, []);
+  
+    
     //use state to check if Claim is rejected/accepted and paid then disable Edit button - end
 
     const edit = () => {

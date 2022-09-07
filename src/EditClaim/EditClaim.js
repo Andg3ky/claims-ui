@@ -21,17 +21,35 @@ const EditClaim = () => {
     const [editTransaction, dispatch] = 
     useReducer(editTransactionReducer , transactionToEdit);
 
+    useEffect( () => { 
     getClaim(params.id)
         .then( response => {
             if (response.status === 200) {
                 setTransaction(response.data);
-                dispatch({field:"policyNumber",value:response.data.policyNumber})}
+                dispatch({field:"policyNumber",value:response.data.policyNumber})
+                dispatch({field:"customer",value:response.data.customer})
+                dispatch({field:"address",value:response.data.address})
+                dispatch({field:"dateOfClaim",value:response.data.dateOfClaim})
+                dispatch({field:"estimatedValue",value:response.data.estimatedValue})
+                dispatch({field:"reason",value:response.data.reason})
+                dispatch({field:"incidentDescription",value:response.data.incidentDescription})
+                dispatch({field:"addressImpacted",value:response.data.addressImpacted})
+                dispatch({field:"motorMake",value:response.data.motorMake})
+                dispatch({field:"motorModel",value:response.data.motorModel})
+                dispatch({field:"motorYear",value:response.data.motorYear})
+                dispatch({field:"petType",value:response.data.petType})
+                dispatch({field:"petBreed",value:response.data.petBreed})
+                dispatch({field:"status",value:response.data.status})
+                dispatch({field:"type",value:response.data.type})
+            }  
             else {
                 console.log("Something went wrong", response.status);
             }
         } )
         .catch(error => console.log("error occurred", error));
-
+    }
+    ,[]);
+    
     const transactionToEditId = params.id;
 
     console.log(transactionToEdit);
@@ -39,6 +57,7 @@ const EditClaim = () => {
 
     const handleChange = (event) => {
         const dataToChange = { field : event.target.id, value : event.target.value };
+        console.log({...transactionToEdit,...dataToChange})
         setTransaction({...transactionToEdit,...dataToChange})
         dispatch(dataToChange);
     }
@@ -49,7 +68,7 @@ const EditClaim = () => {
     const [saving, setSaving] = useState(false);
     
     const submitForm = (e) => {
-        
+        e.preventDefault();
         setSaving(true);
 
     let response;
@@ -128,11 +147,6 @@ const EditClaim = () => {
         navigate("/display/" + params.id);
     }
 
-    //The useEffect means run only once
-        useEffect( () => {
-            submitForm();
-        } , [] );
-
     return (
    <div className="viewclaimsContainer">
         <Fragment> 
@@ -150,7 +164,7 @@ const EditClaim = () => {
 
                     {/* Customer Name */}
                     <label htmlFor="customerName">Customer Name</label>
-                    <input type="text" placeholder="customer name" name="customerName" id="customerName" 
+                    <input type="text" placeholder="customer name" name="customer" id="customer" 
                     onChange={handleChange} value={editTransaction.customer} />
 
                     {/* Customer Address */}
@@ -218,8 +232,8 @@ const EditClaim = () => {
                     <input type="text" name ="insuranceType" placeholder= "insurance type" id="insuranceType" 
                     onChange={handleChange} value={editTransaction.type}/>
 
-            <button onClick={update} disabled={saving} onSubmit={submitForm} type="submit">Update Claim Details</button>
-            <button onClick={update} type="submit">Return to Display Claim</button>
+            <button disabled={saving} type="submit">Update Claim Details</button>
+            <button onClick={update} type="button">Return to Display Claim</button>
             </form>
             </div>
         </Fragment>
