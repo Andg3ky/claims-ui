@@ -94,10 +94,7 @@ const EditClaim = () => {
         };
         if (reason !== transactionToEdit.incidentDescription) {
             data = {...data, incidentDescription : incidentDescription};
-        };
-        if (address !== transactionToEdit.address) {
-            data = {...data, address : address};
-        };        
+        };      
         if (addressImpacted !== transactionToEdit.addressImpacted) {
             data = {...data, addressImpacted : addressImpacted};
         };
@@ -169,22 +166,22 @@ const EditClaim = () => {
 
                     {/* Customer Address */}
                     <label htmlFor="customerAddress">Customer Address</label>
-                    <input type="text" placeholder="customer address" name="customerAddress" id="customerAddress" 
+                    <input type="text" placeholder="customer address" name="address" id="address" 
                     onChange={handleChange} value={editTransaction.address} />
 
                     {/* Claim Start Date */}
                     <label htmlFor="Claim Start">Claim Start Date</label>
-                    <input type="text" placeholder="claim start date" id="claimStart" name="claimStart" 
+                    <input type="text" placeholder="claim start date" id="dateOfClaim" name="dateOfClaim" 
                     onChange={handleChange} value={editTransaction.dateOfClaim}/>
 
                     {/* Claim Amount */}
                     <label htmlFor="Claim Amount">Claim Estimated Value($)</label>
-                    <input type="text" placeholder="claim amount - $0.00" name="claimAmount" id="claimAmount" 
+                    <input type="text" placeholder="claim amount - $0.00" name="estimatedValue" id="estimatedValue" 
                     onChange={handleChange} value={editTransaction.estimatedValue}/>
 
                     {/* Reason for Claim */}
                     <label htmlFor="Claim Reason">Claim Reason (Enter details)</label>
-                    <input type="text" placeholder="reason for claim" name="claimReason" id="claimReason" 
+                    <input type="text" placeholder="reason for claim" name="reason" id="reason" 
                     onChange={handleChange} value={editTransaction.reason} />
 
                     {/* Description of Incident leading up to Claim */}
@@ -194,7 +191,7 @@ const EditClaim = () => {
 
                     {/* Insurance Type Specific Fields Start */}
                     <label htmlFor="propertyAddressImpacted">Property Impacted* (Property Only)</label>
-                    <textarea name="propertyAddressImpacted" placeholder="Enter property address affected" id="propertyAddressImpacted" 
+                    <textarea name="addressImpacted" placeholder="Enter property address affected" id="addressImpacted" 
                     onChange={handleChange} value={editTransaction.addressImpacted} rows="3" cols="63"></textarea>
 
                     {/* Motor Make */}
@@ -224,12 +221,12 @@ const EditClaim = () => {
 
                     {/* Claim Status */}
                     <label htmlFor="claimStatus">Claim Status</label>
-                    <input type="text" name="claimStatus" placeholder="claim status" id="claimStatus" 
+                    <input type="text" name="status" placeholder="claim status" id="status" 
                     onChange={handleChange} value={editTransaction.status} />
 
                     {/* Insurance Type */}
                     <label htmlFor="insuranceType">Type of Insurance </label>
-                    <input type="text" name ="insuranceType" placeholder= "insurance type" id="insuranceType" 
+                    <input type="text" name ="type" placeholder= "insurance type" id="type" 
                     onChange={handleChange} value={editTransaction.type}/>
 
             <button disabled={saving} type="submit">Update Claim Details</button>

@@ -31,6 +31,7 @@ const [selectedRadio, setSelectedRadio] = useState("");
     
 const changeHandler = e => {
   setSelectedRadio(e.target.value);
+  dispatch({field : "type", value : e.target.value})
 };
 
 //const params = useParams();
@@ -93,15 +94,15 @@ const changeHandler = e => {
         <div className="radio-container">
           
           <input type="radio" id="property" value="property" name="type" 
-          checked={selectedRadio === "property"} onChange={changeHandler} />
+          checked={type === "property"} onChange={changeHandler} />
           <label className="radio-label" htmlFor="property">Property</label>
 
           <input type="radio" id="motor" value="motor" name="type" 
-          checked={selectedRadio === "motor"} onChange={changeHandler} />
+          checked={type === "motor"} onChange={changeHandler} />
           <label className="radio-label" htmlFor="motor">Motor</label>
 
           <input type="radio" id="pet" value="pet" name="type" 
-          checked={selectedRadio === "pet"} onChange={changeHandler} />
+          checked={type === "pet"} onChange={changeHandler} />
           <label className="radio-label" htmlFor="pet">Pet</label>
         </div>
 
