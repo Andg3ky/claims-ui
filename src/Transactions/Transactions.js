@@ -59,7 +59,7 @@ const Transactions = (props) => {
             <th>Policy Number</th>
             <th>Customer</th>
             <th>Status</th>
-            <th>Edit Claim</th>
+            <th>View/Edit Claim</th>
         </tr>
         </thead>
 

@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { getClaim } from '../Data/DataFunctions';
 
@@ -11,8 +11,9 @@ const DisplayClaim = () => {
     const [transaction, setTransaction] = useState(emptyTransaction);
 
     const navigate = useNavigate();
-
+    
     const params = useParams();
+    useEffect( () => {
     getClaim(params.id)
         .then( response => {
             if (response.status === 200) {
@@ -23,6 +24,17 @@ const DisplayClaim = () => {
             }
         } )
         .catch(error => console.log("error occurred", error));
+    }, [] );
+    
+    //use state to check if Claim is rejected/accepted and paid then disable Edit button - start
+    const [isDisabled, setDisabled] = useState(false);
+    const claimStatus = transaction.status;
+    useEffect(() => {
+        if(claimStatus === ("Rejected")) {
+            setDisabled(true);
+        }
+    }, []);
+    //use state to check if Claim is rejected/accepted and paid then disable Edit button - end
 
     const edit = () => {
         navigate("/edit/" + params.id);
@@ -48,9 +60,9 @@ const DisplayClaim = () => {
 
                     {/* Insurance Type Specific Fields Start */}
                     <tr><th>Property Impacted* (Property Only)</th><td>{transaction.addressImpacted}</td></tr>
-                    <tr><th>Vehicle Make* (Motor Only)</th><td>{transaction.motorMake}</td></tr>
-                    <tr><th>Vehicle Model* (Motor Only)</th><td>{transaction.motorModel}</td></tr>
-                    <tr><th>Vehicle Year* (Motor Only)</th><td>{transaction.motorYear}</td></tr>
+                    <tr><th>Motor Make* (Motor Only)</th><td>{transaction.motorMake}</td></tr>
+                    <tr><th>Motor Model* (Motor Only)</th><td>{transaction.motorModel}</td></tr>
+                    <tr><th>Motor Year* (Motor Only)</th><td>{transaction.motorYear}</td></tr>
                     <tr><th>Pet Type* (Pet Only)</th><td>{transaction.petType}</td></tr>
                     <tr><th>Pet Breed* (Pet Only)</th><td>{transaction.petBreed}</td></tr>
                     {/* Insurance Type Specific Fields End */}
@@ -59,7 +71,7 @@ const DisplayClaim = () => {
                     <tr><th>Insurance Type</th><td>{transaction.type}</td></tr>
                 </tbody>
             </table>
-            <button onClick={edit}>Edit</button>
+            <button onClick={edit} disabled={isDisabled}>Edit</button>
             </div>
         </Fragment>
         </div>

@@ -43,7 +43,7 @@ const changeHandler = e => {
       e.preventDefault();
       console.log(newTransaction);
       setSaving(true);
-      setMessage("please wait - registering new claim")
+      setMessage("New Claim registered")
     
     let response;
     response = addNewClaim(newTransaction);
@@ -93,26 +93,17 @@ const changeHandler = e => {
         <div className="radio-container">
           
           <input type="radio" id="property" value="property" name="type" 
-          checked={type === "property"} onChange={handleChange} />
+          checked={selectedRadio === "property"} onChange={changeHandler} />
           <label className="radio-label" htmlFor="property">Property</label>
 
           <input type="radio" id="motor" value="motor" name="type" 
-          checked={type === "motor"} onChange={handleChange} />
+          checked={selectedRadio === "motor"} onChange={changeHandler} />
           <label className="radio-label" htmlFor="motor">Motor</label>
 
           <input type="radio" id="pet" value="pet" name="type" 
-          checked={type === "pet"} onChange={handleChange} />
+          checked={selectedRadio === "pet"} onChange={changeHandler} />
           <label className="radio-label" htmlFor="pet">Pet</label>
         </div>
-
-        {/* Title of Person 
-        <label htmlFor="title">Title</label>
-        <select id="title" name="title" onChange={handleChange} value={title}>
-          <option value="" defaultValue>-- select --</option>
-          <option value="Mr">Mr</option>
-          <option value="Ms">Mrs</option>
-          <option value="Mx">Mx</option>
-        </select> */}
 
         {/* Customer Name */}
         <label htmlFor="customerName">Customer Full Name</label>

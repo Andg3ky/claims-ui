@@ -13,30 +13,33 @@ const EditClaim = () => {
     const navigate = useNavigate();
 
     const params = useParams();
+
+    const editTransactionReducer = (state, data) => {
+        return {...state, [data.field] : data.value}
+    }
+
+    const [editTransaction, dispatch] = 
+    useReducer(editTransactionReducer , transactionToEdit);
+
     getClaim(params.id)
         .then( response => {
             if (response.status === 200) {
                 setTransaction(response.data);
-            }
+                dispatch({field:"policyNumber",value:response.data.policyNumber})}
             else {
                 console.log("Something went wrong", response.status);
             }
         } )
         .catch(error => console.log("error occurred", error));
 
-    const editTransactionReducer = (state, data) => {
-        return {...state, [data.field] : data.value}
-    }
-
     const transactionToEditId = params.id;
-    const editMode = transactionToEditId != null;
-    
 
-    const [editTransaction, dispatch] = 
-    useReducer(editTransactionReducer , transactionToEdit);
+    console.log(transactionToEdit);
+    console.log(editTransaction);
 
     const handleChange = (event) => {
         const dataToChange = { field : event.target.id, value : event.target.value };
+        setTransaction({...transactionToEdit,...dataToChange})
         dispatch(dataToChange);
     }
 
@@ -45,13 +48,12 @@ const EditClaim = () => {
 
     const [saving, setSaving] = useState(false);
     
-    const submitForm = (event) => {
-       
+    const submitForm = (e) => {
+        
         setSaving(true);
 
     let response;
     
-    if (editMode) {
         let data = {};
         if (policyNumber !== transactionToEdit.policyNumber) {
             data = {...data, policyNumber : policyNumber};
@@ -103,7 +105,7 @@ const EditClaim = () => {
         }
 
         response = updateClaim(params.id, data);
-    } 
+    
 
     response.then( result => {
         if (result.status === 200) {
@@ -181,19 +183,19 @@ const EditClaim = () => {
                     <textarea name="propertyAddressImpacted" placeholder="Enter property address affected" id="propertyAddressImpacted" 
                     onChange={handleChange} value={editTransaction.addressImpacted} rows="3" cols="63"></textarea>
 
-                    {/* Vehicle Make */}
-                    <label htmlFor="vehicleMake">Vehicle Make* (Motor Only)</label>
-                    <input type="text" name="vehicleMake" placeholder="vehicle make" id="vehicleMake" 
+                    {/* Motor Make */}
+                    <label htmlFor="motorMake">Motor Make* (Motor Only)</label>
+                    <input type="text" name="motorMake" placeholder="motor make" id="motorMake" 
                     onChange={handleChange} value={editTransaction.motorMake} />
 
-                    {/* Vehicle Model */}
-                    <label htmlFor="vehicleModel">Vehicle Model* (Motor Only)</label>
-                    <input type="text" name="vehicleModel" placeholder="vehicle model" id="vehicleModel" 
+                    {/* Motor Model */}
+                    <label htmlFor="motorModel">Motor Model* (Motor Only)</label>
+                    <input type="text" name="motorModel" placeholder="motor model" id="motorModel" 
                     onChange={handleChange} value={editTransaction.motorModel} />
 
-                    {/* Vehicle Year */}
-                    <label htmlFor="vehicleYear">Vehicle Year* (Motor Only)</label>
-                    <input type="number" name="vehicleYear" placeholder="vehicle year" id="vehicleYear" 
+                    {/* Motor Year */}
+                    <label htmlFor="motorYear">Motor Year* (Motor Only)</label>
+                    <input type="number" name="motorYear" placeholder="motor year" id="motorYear" 
                     onChange={handleChange} value={editTransaction.motorYear} />
 
                     {/* Pet Type */}

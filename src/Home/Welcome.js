@@ -15,9 +15,13 @@ const Welcome = () => {
         </strong>
         <br></br>
         <br></br>
-        <strong>Before you make a claim, select the relevant product below to see what information we’ll need from you and the best way to contact us.
-        To report a new claim, call our 24-Hour reporting line and if you wish to discuss a pending claim, our team are available 9am-5pm Monday to Friday.
-        </strong>
+        <strong>To submit a new claim, please go to New Claim tab.</strong>
+        <br></br>
+        <strong>To view claims, please go to View Claims tab.</strong>
+        <br></br>
+        <strong>To search claims, please go to Search Claims tab.</strong>
+        <br></br>
+        <strong>To Login, please go to Login tab.</strong>
         </p>
     </div>
 

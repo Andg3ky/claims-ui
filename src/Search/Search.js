@@ -20,12 +20,19 @@ const handleChange = (event) => {
     setValid(value.trim().length > 0);
 }
 
+const handleChangetwo = (event) => {
+    const value = event.target.value;
+    setTouched(true);
+    setSearchTerm(value);
+    setValid(value.trim().length > 0);
+}
+
 return  <div className="searchContainer">
 
 <div className="searchBox">
         {/* Search Title */}
         <div>
-            <h1 className="searchTitle">Search</h1>
+            <h1 className="searchTitle">Search Claims</h1>
         </div>
 
         {/* Bind our form to an event */}
@@ -34,21 +41,28 @@ return  <div className="searchContainer">
             <div className="searchInstructions">
             <h3>Instructions</h3>
             <ul>
-             <li>Please fill in the fields for the claim.</li>
-             <li>Click Register to record new claim.</li>
+             <li>Please enter the full policy number or the full customer name for the claim.</li>
+             <li>Click Search to search the claim.</li>
             </ul>
+            </div>
+
+            {/* ID */}
+            <div className="searchEntry">
+                <label htmlFor="id">ID:</label>
+                 <input onChange={handleChangetwo} value={searchTerm} type="text"  placeholder="id" 
+                 name="id" id="id" />
             </div>
             
             {/* Policy Number */}
             <div className="searchEntry">
-                <label htmlFor="policyNumber">Policy Number</label>
+                <label htmlFor="policyNumber">Policy Number:</label>
                  <input onChange={handleChange} value={searchTerm} type="text"  placeholder="policy number" 
                  name="policyNumber" id="policyNumber" />
             </div>
 
             {/* Customer Name */}
             <div className="searchEntry">
-                <label htmlFor="customerName">Customer Name</label>
+                <label htmlFor="customerName">Customer Name:</label>
                 <input type="text" placeholder="customer name" 
                 name="customerName" id="customerName" />
             </div>

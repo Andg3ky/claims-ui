@@ -15,7 +15,7 @@ const ViewClaimsRow = (props) => {
         <th>{props.customer}</th>
         <th>{props.dateOfClaim}</th>
         <th>{props.status}</th>
-        <th><button onClick={handleClick} className="showDetailBtn">View</button></th>
+        <th><button onClick={handleClick} className="showDetailBtn">View/Edit</button></th>
     </tr>
 
 }

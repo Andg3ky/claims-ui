@@ -13,7 +13,7 @@ const TransactionRow = (props) => {
         <th>{props.policyNumber}</th>
         <th>{props.customer}</th>
         <th>{props.status}</th>
-        <th><button onClick={handleClick} className="showDetailBtn">Edit</button></th>
+        <th><button onClick={handleClick} className="showDetailBtn">View/Edit</button></th>
     </tr>
 }
 

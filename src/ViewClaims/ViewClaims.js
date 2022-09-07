@@ -80,7 +80,7 @@ const ViewClaims = () => {
                 <th>Name</th>
                 <th>Date of Claim</th>
                 <th>Status{}</th>
-                <th>View Claim</th>
+                <th>View/Edit Claim</th>
             </tr>
            </thead>
 
