@@ -45,13 +45,6 @@ return  <div className="searchContainer">
              <li>Click Search to search the claim.</li>
             </ul>
             </div>
-
-            {/* ID */}
-            <div className="searchEntry">
-                <label htmlFor="id">ID:</label>
-                 <input onChange={handleChangetwo} value={searchTerm} type="text"  placeholder="id" 
-                 name="id" id="id" />
-            </div>
             
             {/* Policy Number */}
             <div className="searchEntry">

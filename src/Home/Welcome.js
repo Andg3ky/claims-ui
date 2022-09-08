@@ -15,13 +15,13 @@ const Welcome = () => {
         </strong>
         <br></br>
         <br></br>
-        <strong>To submit a new claim, please go to New Claim tab.</strong>
+        <strong>To submit a new claim, please go to the New Claim tab.</strong>
         <br></br>
-        <strong>To view claims, please go to View Claims tab.</strong>
+        <strong>To view claims, please go to the View Claims tab.</strong>
         <br></br>
-        <strong>To search claims, please go to Search Claims tab.</strong>
+        <strong>To search claims, please go to the Search Claims tab.</strong>
         <br></br>
-        <strong>To Login, please go to Login tab.</strong>
+        <strong>To Login, please go to the Login tab.</strong>
         </p>
     </div>
 

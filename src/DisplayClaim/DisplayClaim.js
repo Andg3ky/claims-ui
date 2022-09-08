@@ -32,11 +32,6 @@ const DisplayClaim = () => {
         .catch(error => console.log("error occurred", error));
     }, [] );
     
-    //use state to check if Claim is rejected/accepted and paid then disable Edit button - start
-  
-    
-    //use state to check if Claim is rejected/accepted and paid then disable Edit button - end
-
     const edit = () => {
         navigate("/edit/" + params.id);
     }
@@ -74,6 +69,7 @@ const DisplayClaim = () => {
             </table>
             <button onClick={edit} disabled={isDisabled}>Edit</button>
             </div>
+            <strong><p>*Note: All claims with a status of 'Rejected' or 'Accepted and Paid' cannot be Edited and will be Archived. </p></strong>
         </Fragment>
         </div>
     );
