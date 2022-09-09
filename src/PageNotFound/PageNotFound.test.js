@@ -2,10 +2,11 @@ import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event";
 import App from "../App";
 
-test("check re-direct from Page Not Found to Home when Back to Welcome Page button clicked", async () => {
+test("check re-direct from Page Not Found to Home Page when Back clicked", async () => {
     
     //GIVEN
     render(<App />);
+    //WHEN 
     const welcomeLink = screen.queryByText("Welcome");
     userEvent.click(welcomeLink);
     //THEN

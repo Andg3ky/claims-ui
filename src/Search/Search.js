@@ -20,13 +20,6 @@ const handleChange = (event) => {
     setValid(value.trim().length > 0);
 }
 
-const handleChangetwo = (event) => {
-    const value = event.target.value;
-    setTouched(true);
-    setSearchTerm(value);
-    setValid(value.trim().length > 0);
-}
-
 return  <div className="searchContainer">
 
 <div className="searchBox">
