@@ -26,7 +26,7 @@ test( "ensure warning message is displayed when the user has only typed in a spa
         //GIVEN
             render(<BrowserRouter><Search /></BrowserRouter>);
         //WHEN
-            const orderIdInput = screen.getByLabelText("Policy Number");
+            const orderIdInput = screen.getByLabelText("Policy Number:");
             userEvent.type(orderIdInput, " ");
 
         //THEN
